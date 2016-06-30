@@ -7,3 +7,5 @@
 //
 
 import Foundation
+
+public let NightNightThemeChangeNotification = "NightNightThemeChangeNotification" 

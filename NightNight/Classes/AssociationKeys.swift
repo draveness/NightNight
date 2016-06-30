@@ -9,5 +9,5 @@
 import Foundation
 
 struct AssociationKeys {
-    static var backgroundColorKey = "backgroundColorKey"
+    static var backgroundColorKey = "backgroundColor"
 }

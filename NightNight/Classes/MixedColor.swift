@@ -21,6 +21,10 @@ public class MixedColor {
         normalColor = UIColor(rgb: normal)
         nightColor = UIColor(rgb: night);
     }
+
+    func unfold() -> UIColor? {
+        return nightColor
+    }
 }
 
 extension UIColor {
