@@ -8,12 +8,27 @@
 
 import UIKit
 
-public struct MixedColor {
-    let normalColor: UIColor
-    let nightColor: UIColor
+public class MixedColor {
+    public let normalColor: UIColor
+    public let nightColor: UIColor
 
-    init(normal: UIColor, _ night: UIColor) {
+    public init(normal: UIColor, night: UIColor) {
         normalColor = normal
         nightColor = night;
+    }
+
+    public init(normal: Int, night: Int) {
+        normalColor = UIColor(rgb: normal)
+        nightColor = UIColor(rgb: night);
+    }
+}
+
+extension UIColor {
+    convenience init(rgb: Int) {
+        let red = CGFloat(rgb >> 16) / 255.0
+        let green = CGFloat(rgb >> 8 & 0xff) / 255.0
+        let blue = CGFloat(rgb >> 0 & 0xff) / 255.0
+
+        self.init(red: red, green: green, blue: blue, alpha: 1.0)
     }
 }

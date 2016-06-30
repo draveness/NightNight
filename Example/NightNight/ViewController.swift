@@ -13,7 +13,9 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0xff0000)
+        print(self.view.mixedBackgroundColor?.nightColor)
+
     }
 
     override func didReceiveMemoryWarning() {
