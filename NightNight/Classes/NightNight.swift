@@ -8,4 +8,12 @@
 
 import Foundation
 
-public let NightNightThemeChangeNotification = "NightNightThemeChangeNotification" 
+public let NightNightThemeChangeNotification = "NightNightThemeChangeNotification"
+
+func MixedAnimations(animation: () -> ()) -> () {
+    UIView.beginAnimations(nil, context: nil)
+
+    animation()
+
+    UIView.commitAnimations()
+}

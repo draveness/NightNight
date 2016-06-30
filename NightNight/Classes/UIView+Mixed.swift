@@ -11,16 +11,14 @@ import ObjectiveC
 
 public extension UIView {
     public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&AssociationKeys.backgroundColorKey) }
-        set { setMixedColor(&AssociationKeys.backgroundColorKey, value: newValue) }
+        get { return getMixedColor(&Keys.backgroundColor) }
+        set { setMixedColor(&Keys.backgroundColor, value: newValue) }
     }
 
     override func updateCurrentColor() -> () {
         super.updateCurrentColor()
-        UIView.beginAnimations(nil, context: nil)
-
-        backgroundColor = mixedBackgroundColor?.unfold()
-
-        UIView.commitAnimations()
+        MixedAnimations {
+            self.backgroundColor = self.mixedBackgroundColor?.unfold()
+        }
     }
 }
