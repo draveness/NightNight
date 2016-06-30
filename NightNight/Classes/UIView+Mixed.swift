@@ -13,8 +13,15 @@ public extension UIView {
     public var mixedBackgroundColor: MixedColor? {
         get { return getMixedColor(&Keys.backgroundColor) }
         set {
-            self.backgroundColor = newValue?.unfold()
+            backgroundColor = newValue?.unfold()
             setMixedColor(&Keys.backgroundColor, value: newValue)
+        }
+    }
+    public var mixedTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.tintColor) }
+        set {
+            tintColor = newValue?.unfold()
+            setMixedColor(&Keys.tintColor, value: newValue)
         }
     }
 
@@ -22,6 +29,7 @@ public extension UIView {
         super.updateCurrentColor()
         MixedAnimations {
             self.backgroundColor = self.mixedBackgroundColor?.unfold()
+            self.tintColor = self.mixedTintColor?.unfold()
         }
     }
 }
