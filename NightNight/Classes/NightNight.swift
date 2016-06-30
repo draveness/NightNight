@@ -6,14 +6,24 @@
 //
 //
 
-import Foundation
+import UIKit
+
 
 public let NightNightThemeChangeNotification = "NightNightThemeChangeNotification"
 
-func MixedAnimations(animation: () -> ()) -> () {
-    UIView.beginAnimations(nil, context: nil)
+public class NightNight {
+    private static var currentTheme = Theme.NORMAL
 
-    animation()
+    public enum Theme {
+        case NORMAL
+        case NIGHT
+    }
 
-    UIView.commitAnimations()
+    public static var theme: Theme {
+        get { return currentTheme }
+        set {
+            currentTheme = newValue
+            NSNotificationCenter.defaultCenter().postNotificationName(NightNightThemeChangeNotification, object: nil)
+        }
+    }
 }
