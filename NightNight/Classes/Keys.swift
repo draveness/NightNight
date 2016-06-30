@@ -14,4 +14,10 @@ func mixed(key: String) -> String {
 
 struct Keys {
     static var backgroundColor = "backgroundColor"
+    static var tintColor = "tintColor"
+    static var shadowColor = "shadowColor"
+    static var textColor = "textColor"
+    static var highlightedTextColor = "highlightedTextColor"
+    static var barTintColor = "barTintColor"
+    static var separatorColor = "separatorColor"
 }
