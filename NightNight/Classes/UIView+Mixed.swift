@@ -25,11 +25,16 @@ public extension UIView {
         }
     }
 
-    override func updateCurrentColor() -> () {
+    override func updateCurrentColor() {
         super.updateCurrentColor()
-        MixedAnimations {
-            self.backgroundColor = self.mixedBackgroundColor?.unfold()
-            self.tintColor = self.mixedTintColor?.unfold()
+
+        if let mixedBackgroundColor = mixedBackgroundColor {
+            backgroundColor = mixedBackgroundColor.unfold()
         }
+
+        if let mixedTintColor = mixedTintColor {
+            tintColor = mixedTintColor.unfold()
+        }
+
     }
 }

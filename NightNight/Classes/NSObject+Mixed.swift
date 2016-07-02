@@ -15,10 +15,18 @@ extension NSObject {
     }
     func setMixedColor(key: UnsafePointer<Void>, value: MixedColor?) {
         objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentColor), name: NightNightThemeChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
     }
 
-    func updateCurrentColor() -> () {
+    func updateTheme() {
+        UIView.beginAnimations(nil, context: nil)
 
+//        UIView.animateWithDuration(1.0) {
+            self.updateCurrentColor()
+//        }
+
+        UIView.commitAnimations()
     }
+
+    func updateCurrentColor() {}
 }
