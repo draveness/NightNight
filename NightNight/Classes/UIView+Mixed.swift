@@ -17,6 +17,7 @@ public extension UIView {
             setMixedColor(&Keys.backgroundColor, value: newValue)
         }
     }
+
     public var mixedTintColor: MixedColor? {
         get { return getMixedColor(&Keys.tintColor) }
         set {
