@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import ObjectiveC
 
 public let NightNightThemeChangeNotification = "NightNightThemeChangeNotification"
 

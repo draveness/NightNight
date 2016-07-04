@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import ObjectiveC
 
 public extension UIView {
     public var mixedBackgroundColor: MixedColor? {
