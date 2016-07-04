@@ -21,9 +21,7 @@ extension NSObject {
     func updateTheme() {
         UIView.beginAnimations(nil, context: nil)
 
-//        UIView.animateWithDuration(1.0) {
-            self.updateCurrentColor()
-//        }
+        self.updateCurrentColor()
 
         UIView.commitAnimations()
     }
