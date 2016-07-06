@@ -15,30 +15,34 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x000000)
+        view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
         print(view.mixedBackgroundColor?.nightColor)
 
         label.frame = view.frame
         label.text = "NightNight"
-        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xffffff)
+        label.textAlignment = .Center
+        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
 
+        navigationItem.title = "NightNight"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Normal",
+                                                           style: .Done,
+                                                           target: self,
+                                                           action: #selector(changeToNormal))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Night",
+                                                            style: .Done,
+                                                            target: self,
+                                                            action: #selector(changeToNight))
+        navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
+        navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
     }
 
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
-            NightNight.theme = .NIGHT
+    func changeToNormal() {
+        NightNight.theme = .NORMAL
+    }
 
-//            UIView.beginAnimations(nil, context: nil)
-//
-//            self.view.backgroundColor = UIColor.blackColor()
-//            self.label.textColor = UIColor.whiteColor()
-//
-//            UIView.commitAnimations()
-
-        }
+    func changeToNight() {
+        NightNight.theme = .NIGHT
     }
 
 }
