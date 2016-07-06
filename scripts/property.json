@@ -19,8 +19,7 @@
     "UITabBar":
     [ 
         "barTintColor"
-    ]
-    //,
+    ],
     //"UIBarButtonItem":
     //[ 
     //    "tintColor"

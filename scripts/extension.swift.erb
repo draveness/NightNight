@@ -9,7 +9,7 @@
 import Foundation
 
 public extension <%= kls %> {
-    <% kls.properties.each do |property| %><% cap = property.slice(0,1).capitalize + property.slice(1..-1) %>
+    <% properties.each do |property| %><% cap = property.slice(0,1).capitalize + property.slice(1..-1) %>
     public var mixed<%= cap %>: MixedColor? {
         get { return getMixedColor(&Keys.<%= property %>) }
         set {
@@ -22,7 +22,7 @@ public extension <%= kls %> {
     override func updateCurrentColor() {
         super.updateCurrentColor()
 
-        <% kls.properties.each do |property| %><% cap = property.slice(0,1).capitalize + property.slice(1..-1) %>
+        <% properties.each do |property| %><% cap = property.slice(0,1).capitalize + property.slice(1..-1) %>
         if let mixed<%= cap %> = mixed<%= cap %> {
             <%= property %> = mixed<%= cap %>.unfold()
         }
