@@ -36,6 +36,6 @@ def render(template, hash)
 end
 
 json.each do |kls, properties|
-    file_name = "#{kls}+Mixed.swift"
+    file_name = "results/#{kls}+Mixed.swift"
     File.write file_name, render("extension.swift.erb", { :kls => kls, :properties => properties })
 end
