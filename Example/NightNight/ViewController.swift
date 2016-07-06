@@ -23,6 +23,8 @@ class ViewController: UIViewController {
         label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xffffff)
         view.addSubview(label)
 
+        UINavigationBar()
+        UISearchBar()
     }
 
     override func viewDidAppear(animated: Bool) {
