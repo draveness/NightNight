@@ -35,14 +35,9 @@ def render(template, hash)
     ErbalT::render_from_hash(erb, hash)
 end
 
-result_folder = "./results"
-
-FileUtils.rm_rf result_folder
-
-
+result_folder = "../NightNight/Classes"
 
 json.each do |kls, properties|
-    FileUtils.mkdir_p result_folder
-    file_name = File.join "results", "#{kls}+Mixed.swift"
+    file_name = File.join result_folder, "#{kls}+Mixed.swift"
     File.write file_name, render("extension.swift.erb", { :kls => kls, :properties => properties })
 end

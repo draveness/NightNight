@@ -1,5 +1,5 @@
 //
-//  UIView+Mixed.swift
+//  UIControl+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,15 +20,7 @@
 
 import Foundation
 
-public extension UIView {
-    
-    public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&Keys.backgroundColor) }
-        set {
-            backgroundColor = newValue?.unfold()
-            setMixedColor(&Keys.backgroundColor, value: newValue)
-        }
-    }
+public extension UIControl {
     
     public var mixedTintColor: MixedColor? {
         get { return getMixedColor(&Keys.tintColor) }
@@ -41,10 +33,6 @@ public extension UIView {
 
     override func updateCurrentColor() {
         super.updateCurrentColor()
-        
-        if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold()
-        }
         
         if let mixedTintColor = mixedTintColor {
             tintColor = mixedTintColor.unfold()

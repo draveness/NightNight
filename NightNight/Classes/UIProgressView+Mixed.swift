@@ -1,5 +1,5 @@
 //
-//  UIView+Mixed.swift
+//  UIProgressView+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,21 +20,21 @@
 
 import Foundation
 
-public extension UIView {
+public extension UIProgressView {
     
-    public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&Keys.backgroundColor) }
+    public var mixedProgressTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.progressTintColor) }
         set {
-            backgroundColor = newValue?.unfold()
-            setMixedColor(&Keys.backgroundColor, value: newValue)
+            progressTintColor = newValue?.unfold()
+            setMixedColor(&Keys.progressTintColor, value: newValue)
         }
     }
     
-    public var mixedTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.tintColor) }
+    public var mixedTrackTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.trackTintColor) }
         set {
-            tintColor = newValue?.unfold()
-            setMixedColor(&Keys.tintColor, value: newValue)
+            trackTintColor = newValue?.unfold()
+            setMixedColor(&Keys.trackTintColor, value: newValue)
         }
     }
     
@@ -42,12 +42,12 @@ public extension UIView {
     override func updateCurrentColor() {
         super.updateCurrentColor()
         
-        if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold()
+        if let mixedProgressTintColor = mixedProgressTintColor {
+            progressTintColor = mixedProgressTintColor.unfold()
         }
         
-        if let mixedTintColor = mixedTintColor {
-            tintColor = mixedTintColor.unfold()
+        if let mixedTrackTintColor = mixedTrackTintColor {
+            trackTintColor = mixedTrackTintColor.unfold()
         }
         
     }

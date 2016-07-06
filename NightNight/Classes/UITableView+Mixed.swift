@@ -1,5 +1,5 @@
 //
-//  UIView+Mixed.swift
+//  UITableView+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,21 +20,13 @@
 
 import Foundation
 
-public extension UIView {
+public extension UITableView {
     
-    public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&Keys.backgroundColor) }
+    public var mixedSeparatorColor: MixedColor? {
+        get { return getMixedColor(&Keys.separatorColor) }
         set {
-            backgroundColor = newValue?.unfold()
-            setMixedColor(&Keys.backgroundColor, value: newValue)
-        }
-    }
-    
-    public var mixedTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.tintColor) }
-        set {
-            tintColor = newValue?.unfold()
-            setMixedColor(&Keys.tintColor, value: newValue)
+            separatorColor = newValue?.unfold()
+            setMixedColor(&Keys.separatorColor, value: newValue)
         }
     }
     
@@ -42,12 +34,8 @@ public extension UIView {
     override func updateCurrentColor() {
         super.updateCurrentColor()
         
-        if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold()
-        }
-        
-        if let mixedTintColor = mixedTintColor {
-            tintColor = mixedTintColor.unfold()
+        if let mixedSeparatorColor = mixedSeparatorColor {
+            separatorColor = mixedSeparatorColor.unfold()
         }
         
     }

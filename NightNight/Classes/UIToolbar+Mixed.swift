@@ -1,5 +1,5 @@
 //
-//  UIView+Mixed.swift
+//  UIToolbar+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,21 +20,13 @@
 
 import Foundation
 
-public extension UIView {
+public extension UIToolbar {
     
-    public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&Keys.backgroundColor) }
+    public var mixedBarTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.barTintColor) }
         set {
-            backgroundColor = newValue?.unfold()
-            setMixedColor(&Keys.backgroundColor, value: newValue)
-        }
-    }
-    
-    public var mixedTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.tintColor) }
-        set {
-            tintColor = newValue?.unfold()
-            setMixedColor(&Keys.tintColor, value: newValue)
+            barTintColor = newValue?.unfold()
+            setMixedColor(&Keys.barTintColor, value: newValue)
         }
     }
     
@@ -42,12 +34,8 @@ public extension UIView {
     override func updateCurrentColor() {
         super.updateCurrentColor()
         
-        if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold()
-        }
-        
-        if let mixedTintColor = mixedTintColor {
-            tintColor = mixedTintColor.unfold()
+        if let mixedBarTintColor = mixedBarTintColor {
+            barTintColor = mixedBarTintColor.unfold()
         }
         
     }

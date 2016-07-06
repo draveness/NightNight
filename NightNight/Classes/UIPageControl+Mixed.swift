@@ -1,5 +1,5 @@
 //
-//  UIView+Mixed.swift
+//  UIPageControl+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,21 +20,21 @@
 
 import Foundation
 
-public extension UIView {
+public extension UIPageControl {
     
-    public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&Keys.backgroundColor) }
+    public var mixedPageIndicatorTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.pageIndicatorTintColor) }
         set {
-            backgroundColor = newValue?.unfold()
-            setMixedColor(&Keys.backgroundColor, value: newValue)
+            pageIndicatorTintColor = newValue?.unfold()
+            setMixedColor(&Keys.pageIndicatorTintColor, value: newValue)
         }
     }
     
-    public var mixedTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.tintColor) }
+    public var mixedCurrentPageIndicatorTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.currentPageIndicatorTintColor) }
         set {
-            tintColor = newValue?.unfold()
-            setMixedColor(&Keys.tintColor, value: newValue)
+            currentPageIndicatorTintColor = newValue?.unfold()
+            setMixedColor(&Keys.currentPageIndicatorTintColor, value: newValue)
         }
     }
     
@@ -42,12 +42,12 @@ public extension UIView {
     override func updateCurrentColor() {
         super.updateCurrentColor()
         
-        if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold()
+        if let mixedPageIndicatorTintColor = mixedPageIndicatorTintColor {
+            pageIndicatorTintColor = mixedPageIndicatorTintColor.unfold()
         }
         
-        if let mixedTintColor = mixedTintColor {
-            tintColor = mixedTintColor.unfold()
+        if let mixedCurrentPageIndicatorTintColor = mixedCurrentPageIndicatorTintColor {
+            currentPageIndicatorTintColor = mixedCurrentPageIndicatorTintColor.unfold()
         }
         
     }

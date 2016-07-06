@@ -1,5 +1,5 @@
 //
-//  UIView+Mixed.swift
+//  UISwitch+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,21 +20,21 @@
 
 import Foundation
 
-public extension UIView {
+public extension UISwitch {
     
-    public var mixedBackgroundColor: MixedColor? {
-        get { return getMixedColor(&Keys.backgroundColor) }
+    public var mixedOnTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.onTintColor) }
         set {
-            backgroundColor = newValue?.unfold()
-            setMixedColor(&Keys.backgroundColor, value: newValue)
+            onTintColor = newValue?.unfold()
+            setMixedColor(&Keys.onTintColor, value: newValue)
         }
     }
     
-    public var mixedTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.tintColor) }
+    public var mixedThumbTintColor: MixedColor? {
+        get { return getMixedColor(&Keys.thumbTintColor) }
         set {
-            tintColor = newValue?.unfold()
-            setMixedColor(&Keys.tintColor, value: newValue)
+            thumbTintColor = newValue?.unfold()
+            setMixedColor(&Keys.thumbTintColor, value: newValue)
         }
     }
     
@@ -42,12 +42,12 @@ public extension UIView {
     override func updateCurrentColor() {
         super.updateCurrentColor()
         
-        if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold()
+        if let mixedOnTintColor = mixedOnTintColor {
+            onTintColor = mixedOnTintColor.unfold()
         }
         
-        if let mixedTintColor = mixedTintColor {
-            tintColor = mixedTintColor.unfold()
+        if let mixedThumbTintColor = mixedThumbTintColor {
+            thumbTintColor = mixedThumbTintColor.unfold()
         }
         
     }
