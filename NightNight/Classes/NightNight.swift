@@ -10,11 +10,12 @@ import UIKit
 import ObjectiveC
 
 public let NightNightThemeChangeNotification = "NightNightThemeChangeNotification"
+private let NightNightThemeKey = "NightNightThemeKey"
 
 public class NightNight {
-    private static var currentTheme = Theme.NORMAL
+    private static var currentTheme = Theme(rawValue: NSUserDefaults.standardUserDefaults().integerForKey(NightNightThemeKey)) ?? Theme.NORMAL
 
-    public enum Theme {
+    public enum Theme: Int {
         case NORMAL
         case NIGHT
     }
@@ -23,6 +24,7 @@ public class NightNight {
         get { return currentTheme }
         set {
             currentTheme = newValue
+            NSUserDefaults.standardUserDefaults().setInteger(currentTheme.rawValue, forKey: NightNightThemeKey)
             NSNotificationCenter.defaultCenter().postNotificationName(NightNightThemeChangeNotification, object: nil)
         }
     }
