@@ -39,8 +39,8 @@ public extension UIView {
     }
     
 
-    override func updateCurrentColor() {
-        super.updateCurrentColor()
+    override func updateCurrentStatus() {
+        super.updateCurrentStatus()
         
         if let mixedBackgroundColor = mixedBackgroundColor {
             backgroundColor = mixedBackgroundColor.unfold()

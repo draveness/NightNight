@@ -1,5 +1,5 @@
 //
-//  UIPageControl+Mixed.swift
+//  UIImageView+Mixed.swift
 //  Pods
 //
 //  Created by Draveness.
@@ -20,35 +20,37 @@
 
 import Foundation
 
-public extension UIPageControl {
-    
-    public var mixedPageIndicatorTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.pageIndicatorTintColor) }
+private var mixedImage = "mixedImage"
+private var mixedHighlightedImage = "mixedHighlightedImage"
+
+public extension UIImageView {
+
+    public var mixedImage: MixedImage? {
+        get { return objc_getAssociatedObject(self, &mixedImage) as? MixedImage }
         set {
-            pageIndicatorTintColor = newValue?.unfold()
-            setMixedColor(&Keys.pageIndicatorTintColor, value: newValue)
+            image = newValue?.unfold()
+            objc_setAssociatedObject(self, &mixedImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
-    public var mixedCurrentPageIndicatorTintColor: MixedColor? {
-        get { return getMixedColor(&Keys.currentPageIndicatorTintColor) }
+
+    public var mixedHighlightedImage: MixedImage? {
+        get { return objc_getAssociatedObject(self, &mixedHighlightedImage) as? MixedImage }
         set {
-            currentPageIndicatorTintColor = newValue?.unfold()
-            setMixedColor(&Keys.currentPageIndicatorTintColor, value: newValue)
+            highlightedImage = newValue?.unfold()
+            objc_setAssociatedObject(self, &mixedHighlightedImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
 
     override func updateCurrentStatus() {
         super.updateCurrentStatus()
-        
-        if let mixedPageIndicatorTintColor = mixedPageIndicatorTintColor {
-            pageIndicatorTintColor = mixedPageIndicatorTintColor.unfold()
+
+        if let mixedImage = mixedImage {
+            image = mixedImage.unfold()
         }
-        
-        if let mixedCurrentPageIndicatorTintColor = mixedCurrentPageIndicatorTintColor {
-            currentPageIndicatorTintColor = mixedCurrentPageIndicatorTintColor.unfold()
+
+        if let mixedHighlightedImage = mixedHighlightedImage {
+            highlightedImage = mixedHighlightedImage.unfold()
         }
-        
+
     }
 }

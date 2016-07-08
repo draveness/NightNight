@@ -31,8 +31,8 @@ public extension UIToolbar {
     }
     
 
-    override func updateCurrentColor() {
-        super.updateCurrentColor()
+    override func updateCurrentStatus() {
+        super.updateCurrentStatus()
         
         if let mixedBarTintColor = mixedBarTintColor {
             barTintColor = mixedBarTintColor.unfold()

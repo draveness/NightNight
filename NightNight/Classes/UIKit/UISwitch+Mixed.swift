@@ -39,8 +39,8 @@ public extension UISwitch {
     }
     
 
-    override func updateCurrentColor() {
-        super.updateCurrentColor()
+    override func updateCurrentStatus() {
+        super.updateCurrentStatus()
         
         if let mixedOnTintColor = mixedOnTintColor {
             onTintColor = mixedOnTintColor.unfold()

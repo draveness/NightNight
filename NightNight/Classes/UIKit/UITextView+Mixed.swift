@@ -31,8 +31,8 @@ public extension UITextView {
     }
     
 
-    override func updateCurrentColor() {
-        super.updateCurrentColor()
+    override func updateCurrentStatus() {
+        super.updateCurrentStatus()
         
         if let mixedTextColor = mixedTextColor {
             textColor = mixedTextColor.unfold()

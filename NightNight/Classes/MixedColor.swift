@@ -22,7 +22,7 @@ public class MixedColor {
         nightColor = UIColor(rgb: night);
     }
 
-    func unfold() -> UIColor? {
+    func unfold() -> UIColor {
         switch NightNight.theme {
         case .NORMAL: return normalColor
         case .NIGHT:  return nightColor

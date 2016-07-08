@@ -21,10 +21,10 @@ extension NSObject {
     func updateTheme() {
         UIView.beginAnimations(nil, context: nil)
 
-        self.updateCurrentColor()
+        self.updateCurrentStatus()
 
         UIView.commitAnimations()
     }
 
-    func updateCurrentColor() {}
+    func updateCurrentStatus() {}
 }
