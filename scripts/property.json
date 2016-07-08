@@ -36,10 +36,6 @@
     [
         "textColor"
     ],
-    "UIControl":
-    [
-        "tintColor"
-    ],
     "UIToolbar":
     [
         "barTintColor"    
