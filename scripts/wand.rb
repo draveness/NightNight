@@ -14,12 +14,6 @@ class ObjcClass
     
 end
 
-json = JSON.parse File.read('property.json')
-# json.map do |kls, properties|
-#     ObjcClass.new(kls, properties)
-# end
-
-
 class ErbalT < OpenStruct
     def self.render_from_hash(t, h)
         ErbalT.new(h).render(t)
@@ -35,8 +29,9 @@ def render(template, hash)
     ErbalT::render_from_hash(erb, hash)
 end
 
-result_folder = "../NightNight/Classes"
+result_folder = "../NightNight/Classes/UIKit"
 
+json = JSON.parse File.read('property.json')
 json.each do |kls, properties|
     file_name = File.join result_folder, "#{kls}+Mixed.swift"
     File.write file_name, render("extension.swift.erb", { :kls => kls, :properties => properties })
