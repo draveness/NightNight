@@ -29,10 +29,3 @@ def render(template, hash)
     ErbalT::render_from_hash(erb, hash)
 end
 
-result_folder = "../NightNight/Classes/UIKit"
-
-json = JSON.parse File.read('property.json')
-json.each do |kls, properties|
-    file_name = File.join result_folder, "#{kls}+Mixed.swift"
-    File.write file_name, render("extension.swift.erb", { :kls => kls, :properties => properties })
-end

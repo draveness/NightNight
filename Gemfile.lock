@@ -1,0 +1,15 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+    rake (11.2.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  colorize
+  rake
+
+BUNDLED WITH
+   1.12.4
