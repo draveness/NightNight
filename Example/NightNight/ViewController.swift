@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
-        print(view.mixedBackgroundColor?.nightColor)
+        print(view.mixedBackgroundColor?.nightResource)
 
         label.frame = view.frame
         label.text = "NightNight"
