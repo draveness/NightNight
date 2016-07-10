@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="">
+  <img src="./images/Banner.png">
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/draveness/NightNight"><img alt="Travis Status" src="https://img.shields.io/travis/draveness/NightNight.svg"/></a>
+  <a href="https://travis-ci.org/draveness/NightNight"><img alt="Travis Status" src="https://travis-ci.org/Draveness/NightNight.svg?branch=master"/></a>
   <a href="https://img.shields.io/cocoapods/v/NightNight.svg"><img alt="CocoaPods compatible" src="https://img.shields.io/cocoapods/v/NightNight.svg"/></a>
   <a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
   <a href="https://img.shields.io/cocoapods/p/NightNight.svg?style=flat"><img alt="Platform" src="https://img.shields.io/cocoapods/p/NightNight.svg?style=flat"/></a>
@@ -12,10 +12,6 @@
 **NightNight** makes it easy to integrate night mode.
 
 ```swift
-let attrs = TextAttributes()
-    .font(name: "HelveticaNeue", size: 16)
-    .foregroundColor(white: 0.2, alpha: 1)
-    .lineHeightMultiple(1.5)
 let view = UIView()
 view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x000000)
 
@@ -24,7 +20,7 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
 ```
 
 <p align="center">
-    <a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#demo">Demo</a> • <a href="#installation">Installation</a> • <a href="#license">License</a>
+    <a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#customize">Customize</a> • <a href="#demo">Demo</a> • <a href="#installation">Installation</a> • <a href="#license">License</a>
 </p>
 
 ## Features
@@ -32,10 +28,46 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
 - [x] Integrate night mode easily
 - [x] UIColor and UIImage support
 - [x] Better autocompletion
+- [x] Customize with notification
 
 ## Usage
 
++ Use `MixedColor` instead of `UIColor`
+
+    ```swift
+    let view = UIView()
+    
+    view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x000000)
+    ```
+
++ Use `MixedImage` instead of `UIImage`
+
+    ```swift
+    let imageView = UIImageView()
+    
+    imageView.mixedImage = MixedImage(normal: normal, night: night)
+    ```
+
++ Change current theme
+
+    ```swift
+    NightNight.theme = .NORMAL
+    NightNight.theme = .NIGHT
+    ```
+
+## Customize
+
+NightNight will send `NightNightThemeChangeNotification`. if you wanna some customize features, you can observe it and change what you want in corresponding selector.
+
+```swift
+public let NightNightThemeChangeNotification
+```
+
 ## Demo
+
+<p align="center">
+    <img src="./images/Demo.gif">
+</p>
 
 ## Installation
 
