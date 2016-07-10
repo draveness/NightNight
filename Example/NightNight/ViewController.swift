@@ -20,9 +20,9 @@ class ViewController: UIViewController {
         label.frame = view.frame
         label.text = "NightNight"
 
-//        let attributedString = NSMutableAttributedString(string: "NightNight")
-//        attributedString.setNightAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
-//        label.attributedText = attributedString
+        let attributedString = NSMutableAttributedString(string: "NightNight")
+        attributedString.setMixedAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
+        label.attributedText = attributedString
 
         label.textAlignment = .Center
         label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)

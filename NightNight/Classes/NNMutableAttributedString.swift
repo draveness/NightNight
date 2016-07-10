@@ -9,7 +9,7 @@
 import UIKit
 
 public extension NSMutableAttributedString {
-    struct AssociatedKeys {
+    private struct AssociatedKeys {
         static var mixedAttrsKey = "mixedAttrs"
     }
 
