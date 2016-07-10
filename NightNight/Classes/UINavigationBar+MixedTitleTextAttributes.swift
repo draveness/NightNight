@@ -21,7 +21,7 @@ public extension UINavigationBar {
 
             objc_setAssociatedObject(self, &AssociatedKeys.mixedTitleTextAttributesKey, [:], .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
-            return mixedTitleTextAttributes
+            return self.mixedTitleTextAttributes
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedTitleTextAttributesKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -31,8 +31,8 @@ public extension UINavigationBar {
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTitleTextAttributes), name: NightNightThemeChangeNotification, object: nil)
 
                 MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
-                    if mixedTitleTextAttributes.keys.contains(mixed),
-                        let mixedColor = mixedTitleTextAttributes[mixed] as? MixedColor {
+                    if self.mixedTitleTextAttributes.keys.contains(mixed),
+                        let mixedColor = self.mixedTitleTextAttributes[mixed] as? MixedColor {
                         attributes[normal] = mixedColor.unfold()
                     }
                 })

@@ -60,16 +60,15 @@ private extension UIButton {
     }
     private var mixedTitleColorDictionary: [NSNumber: MixedColor] {
         get {
-            NSNumber(unsignedLong: UIControlState.Application.rawValue)
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedTitleColorDictionaryKey) as? [NSNumber: MixedColor] {
                 return dict
             }
 
-            mixedTitleColorDictionary = [:]
+            self.mixedTitleColorDictionary = [:]
 
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
-            return mixedTitleColorDictionary
+            return self.mixedTitleColorDictionary
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedTitleColorDictionaryKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -83,11 +82,11 @@ private extension UIButton {
                 return dict
             }
 
-            mixedTitleShadowColorDictionary = [:]
+            self.mixedTitleShadowColorDictionary = [:]
 
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
-            return mixedTitleShadowColorDictionary
+            return self.mixedTitleShadowColorDictionary
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedTitleShadowColorDictionaryKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -101,11 +100,11 @@ private extension UIButton {
                 return dict
             }
 
-            mixedImageDictionary = [:]
+            self.mixedImageDictionary = [:]
 
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
-            return mixedImageDictionary
+            return self.mixedImageDictionary
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedImageDictionaryKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -119,11 +118,11 @@ private extension UIButton {
                 return dict
             }
 
-            mixedBackgroundImageDictionary = [:]
+            self.mixedBackgroundImageDictionary = [:]
 
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
-            return mixedBackgroundImageDictionary
+            return self.mixedBackgroundImageDictionary
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedBackgroundImageDictionaryKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

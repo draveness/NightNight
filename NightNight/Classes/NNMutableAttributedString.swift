@@ -18,13 +18,13 @@ public extension NSMutableAttributedString {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedAttrsKey) as? [String : [NSRange : MixedColor]] {
                 return dict
             }
-            mixedAttrs = [:]
+            self.mixedAttrs = [:]
 
             MixedColorAttributeNames.forEach { (mixed) in
-                mixedAttrs[mixed] = [:]
+                self.mixedAttrs[mixed] = [:]
             }
 
-            return mixedAttrs
+            return self.mixedAttrs
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedAttrsKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
