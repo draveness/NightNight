@@ -12,24 +12,17 @@ import NightNight
 class ViewController: UIViewController {
 
     let label = UILabel()
+    let button = UIButton(type: .Custom)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
 
-        label.frame = view.frame
-        label.text = "NightNight"
-
-        let attributedString = NSMutableAttributedString(string: "NightNight")
-        attributedString.setMixedAttributes(
-            [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)],
-            range: NSRange(location: 0, length: 9)
-        )
-        label.attributedText = attributedString
-
-        label.textAlignment = .Center
-        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
-        view.addSubview(label)
+        button.setTitle("NightNight", forState: .Normal)
+        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: .Normal)
+        button.addTarget(self, action: #selector(changeTheme), forControlEvents: .TouchUpInside)
+        button.frame = view.frame
+        view.addSubview(button)
 
         navigationItem.title = "NightNight"
         navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
@@ -43,6 +36,24 @@ class ViewController: UIViewController {
                                                             action: #selector(changeToNight))
         navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
         navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
+
+        self.mixedPreferredStatusBarStyle = MixedStatusBarStyle(normal: .Default, night: .LightContent)
+    }
+
+    func setupLabel() {
+        label.frame = view.frame
+        label.text = "NightNight"
+
+//        let attributedString = NSMutableAttributedString(string: "NightNight")
+//        attributedString.setMixedAttributes(
+//            [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)],
+//            range: NSRange(location: 0, length: 9)
+//        )
+//        label.attributedText = attributedString
+
+        label.textAlignment = .Center
+        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
+        view.addSubview(label)
     }
 
     func changeToNormal() {
@@ -53,5 +64,17 @@ class ViewController: UIViewController {
         NightNight.theme = .NIGHT
     }
 
+    func changeTheme() {
+        if NightNight.theme == .NIGHT {
+            NightNight.theme = .NORMAL
+        } else {
+            NightNight.theme = .NIGHT
+        }
+    }
+
+    dynamic override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        print("Hello ")
+        return .LightContent
+    }
 }
 

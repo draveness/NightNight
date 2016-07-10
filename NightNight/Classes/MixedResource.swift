@@ -24,7 +24,12 @@ public class MixedResource<T> {
     }
 }
 
-public class MixedImage: MixedResource<UIImage> {}
+public class MixedImage: MixedResource<UIImage> {
+    public override init(normal: UIImage, night: UIImage) {
+        super.init(normal: normal, night: night)
+    }
+}
+
 public class MixedColor: MixedResource<UIColor> {
     public init(normal: Int, night: Int) {
         let normalColor = UIColor(rgb: normal)
@@ -33,3 +38,8 @@ public class MixedColor: MixedResource<UIColor> {
     }
 }
 
+public class MixedStatusBarStyle: MixedResource<UIStatusBarStyle> {
+    public override init(normal: UIStatusBarStyle, night: UIStatusBarStyle) {
+        super.init(normal: normal, night: night)
+    }
+}
