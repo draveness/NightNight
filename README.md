@@ -53,7 +53,10 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
 
     ```swift
     let attributedString = NSMutableAttributedString(string: "NightNight")
-    attributedString.setMixedAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
+    attributedString.setMixedAttributes(
+        [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)],
+        range: NSRange(location: 0, length: 9)
+    )
     ```
 
 + Change current theme
