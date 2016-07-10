@@ -9,6 +9,7 @@
 import UIKit
 
 public let NNForegroundColorAttributeName = "NNForegroundColorAttributeName"
+public let NNBackgroundColorAttributeName = "NNBackgroundColorAttributeName"
 
 extension NSRange: Hashable {
     public var hashValue: Int {
@@ -22,7 +23,12 @@ public func ==(lhs: NSRange, rhs: NSRange) -> Bool {
 
 var mixedAttrsKey = "mixedAttrs"
 
+let MixedColorAttributeNamesDictionary =
+    [NNForegroundColorAttributeName: NSForegroundColorAttributeName,
+     NNBackgroundColorAttributeName: NSBackgroundColorAttributeName]
+
 public extension NSMutableAttributedString {
+
 
     private var mixedAttrs: [String: [NSRange: MixedColor]] {
         get {
@@ -31,6 +37,7 @@ public extension NSMutableAttributedString {
             }
             mixedAttrs = [:]
             mixedAttrs[NNForegroundColorAttributeName] = [:]
+            mixedAttrs[NNBackgroundColorAttributeName] = [:]
             return mixedAttrs
         }
         set {
@@ -39,7 +46,8 @@ public extension NSMutableAttributedString {
     }
 
     private func shouldUpdateStatus(attrs: [String: AnyObject]) -> Bool {
-        return attrs.keys.contains(NNForegroundColorAttributeName)
+        return attrs.keys.contains(NNForegroundColorAttributeName) ||
+            attrs.keys.contains(NNBackgroundColorAttributeName)
     }
 
     public func setNightAttributes(attrs: [String : AnyObject]?, range: NSRange) {
@@ -47,10 +55,13 @@ public extension NSMutableAttributedString {
             if shouldUpdateStatus(attrs) {
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
             }
-            if attrs.keys.contains(NNForegroundColorAttributeName) {
-                mixedAttrs[NNForegroundColorAttributeName]?[range] = attrs[NNForegroundColorAttributeName] as? MixedColor
-                attrs[NSForegroundColorAttributeName] = mixedAttrs[NNForegroundColorAttributeName]?[range]?.unfold()
-            }
+
+            MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
+                if attrs.keys.contains(mixed) {
+                    mixedAttrs[mixed]?[range] = attrs[mixed] as? MixedColor
+                    attrs[normal] = mixedAttrs[mixed]?[range]?.unfold()
+                }
+            })
             setAttributes(attrs, range: range)
         } else {
             setAttributes(attrs, range: range)
@@ -60,10 +71,13 @@ public extension NSMutableAttributedString {
     override func updateCurrentStatus() {
         super.updateCurrentStatus()
 
-        if let foregroundColorDictionary = mixedAttrs[NNForegroundColorAttributeName] {
-            foregroundColorDictionary.forEach({ (range, mixedColor) in
-                self.addAttribute(NSForegroundColorAttributeName, value: mixedColor.unfold(), range: range)
-            })
+        MixedColorAttributeNamesDictionary.forEach { (mixed, normal) in
+            if let foregroundColorDictionary = mixedAttrs[mixed] {
+                foregroundColorDictionary.forEach({ (range, mixedColor) in
+                    self.addAttribute(normal, value: mixedColor.unfold(), range: range)
+                })
+            }
+
         }
     }
 
