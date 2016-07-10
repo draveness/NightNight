@@ -102,9 +102,9 @@ public extension NSMutableAttributedString {
         if shouldUpdateStatus(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
             mixedAttrs[name]?.removeValueForKey(range)
-            removeNightAttribute(normalName, range: range)
+            removeAttribute(normalName, range: range)
         } else {
-            removeNightAttribute(name, range: range)
+            removeAttribute(name, range: range)
         }
     }
 
