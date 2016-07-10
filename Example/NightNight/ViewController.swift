@@ -18,16 +18,18 @@ class ViewController: UIViewController {
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
 
         label.frame = view.frame
-//        label.text = "NightNight"
-        let attributedString = NSMutableAttributedString(string: "NightNight")
-        attributedString.setNightAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
-//        attributedString.nn_setAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
-        label.attributedText = attributedString
+        label.text = "NightNight"
+
+//        let attributedString = NSMutableAttributedString(string: "NightNight")
+//        attributedString.setNightAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
+//        label.attributedText = attributedString
+
         label.textAlignment = .Center
-//        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
+        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
 
-//        navigationItem.title = "NightNight"
+        navigationItem.title = "NightNight"
+        navigationController?.navigationBar.titleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Normal",
                                                            style: .Done,
                                                            target: self,

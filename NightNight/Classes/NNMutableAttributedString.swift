@@ -49,7 +49,7 @@ public extension NSMutableAttributedString {
         return MixedColorAttributeNames.contains(attr)
     }
 
-    public func setNightAttributes(attrs: [String : AnyObject]?, range: NSRange) {
+    public func setMixedAttributes(attrs: [String : AnyObject]?, range: NSRange) {
         if var attrs = attrs {
             if shouldUpdateStatus(attrs) {
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
@@ -67,7 +67,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func addNightAttribute(name: String, value: AnyObject, range: NSRange) {
+    public func addMixedAttribute(name: String, value: AnyObject, range: NSRange) {
         if shouldUpdateStatus(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
@@ -79,7 +79,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func addNightAttributes(attrs: [String : AnyObject], range: NSRange) {
+    public func addMixedAttributes(attrs: [String : AnyObject], range: NSRange) {
         if shouldUpdateStatus(attrs) {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
@@ -98,7 +98,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func removeNightAttribute(name: String, range: NSRange) {
+    public func removeMixedAttribute(name: String, range: NSRange) {
         if shouldUpdateStatus(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
             mixedAttrs[name]?.removeValueForKey(range)
