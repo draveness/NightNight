@@ -1,9 +1,30 @@
 osx_image: xcode7.3
 language: objective-c
-# cache: cocoapods
-# podfile: Example/Podfile
-# before_install:
-#  - gem install cocoapods # Since Travis is not always on latest version
-#  - pod install --project-directory=Example
+xcode_workspace: NightNight.xcworkspace
+xcode_scheme: NightNight
+env:
+  global:
+  - FRAMEWORK_NAME=NightNight
+before_install:
+- env
+- locale
+- brew update
+- brew outdated carthage || brew upgrade carthage
+before_script:
+- carthage bootstrap
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
 script:
 - pod lib lint
+deploy:
+  provider: releases
+  api_key:
+    secure: E0L1QVs2Mgl/SX67iyqfKw9YJq3+AVRQ4TODGYdoAh/84ft3AuTAO1x/YFNRUsWl4vQWAZpDi6ZMZZjkB0G/PFE9eMOj4lbw0qIwCLUlOISB2IeeKGbp6NeEjJ1zAOOW8rXX48MiGFxscxy+/bCz+JSBnvUhwe7zBRhr3PMuTMSq+GixAHVXEpNgdBwse0Lrzm9BKxt77CANuEOqAuL2XJrphXyfP+NVaBLlQ9aquSZ9cqSR0k/GOMDc/5S7qXaMbTik/yRIV9bJ+F8qQUhSid+hH7VU26BKoxrWZM7WkQaq/rQC8JkInQw/WZY6EkUOmMTTJGRqKZnLmPm/FqAt83QAQQsd3quFT1HabRSy1RjiH5nGM70hJ9wlsg8M+V/tQdJJ+Q7xYOxnjcBuYQTRgAG2Z484tt5CxySARxsOgAqiIS281PCq0PaLlbfA1aSHj1ixWS2GlDBvjjyClOTsFPSBVbR3iNMRzT0PcDFyvLDC3ATYQFFqcO0qVtzXRe+kPSC+mG4dcd/rByUkHH038n0II7wbmIxXvkXSpcFHvWk/wwYtnbv1j6rnGoXa/O+hGnHJGtjuokUhqozN1VGrJooElr0+Sy9UvIh8705hojJVUhYS6viF5iE0an4SOY0Fs9zn+WhxAxYhTV6uYyYFtDVK3SLBinzi01WHAmvHiLc=
+  file: "$FRAMEWORK_NAME.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: Draveness/NightNight
+    tags: true
+
+
