@@ -2,7 +2,6 @@ fastlane_version "1.97.2"
 
 default_platform :ios
 
-desc "Release new version"
   lane :release do |options|
     target_version = options[:version]
     raise "The version is missed." if target_version.nil?
@@ -20,8 +19,8 @@ desc "Release new version"
     push_to_git_remote                                        
     pod_push                                                 
   end
+
   lane :podpush do
     pod_push
   end
 
-end
