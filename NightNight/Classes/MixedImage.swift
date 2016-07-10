@@ -21,7 +21,6 @@ public class MixedImage {
         switch NightNight.theme {
         case .NORMAL: return normalImage
         case .NIGHT:  return nightImage
-        default:      return normalImage
         }
     }
 }

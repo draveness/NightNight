@@ -26,7 +26,6 @@ public class MixedColor {
         switch NightNight.theme {
         case .NORMAL: return normalColor
         case .NIGHT:  return nightColor
-        default:      return normalColor
         }
     }
 }
