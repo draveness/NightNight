@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="">
+  <img src="./images/Banner.png">
 </p>
 
 <p align="center">
@@ -68,6 +68,10 @@ public let NightNightThemeChangeNotification
 ```
 
 ## Demo
+
+<p align="center">
+    <img src="./images/Demo.gif">
+</p>
 
 ## Installation
 
