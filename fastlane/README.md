@@ -5,9 +5,9 @@ fastlane documentation
 sudo gem install fastlane
 ```
 # Available Actions
-### new_version
+### release
 ```
-fastlane new_version
+fastlane release
 ```
 
 ### podpush
