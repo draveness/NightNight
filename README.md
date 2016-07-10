@@ -24,7 +24,7 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
 ```
 
 <p align="center">
-    <a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#demo">Demo</a> • <a href="#installation">Installation</a> • <a href="#license">License</a>
+    <a href="#features">Features</a> • <a href="#usage">Usage</a> • <a href="#customize">Customize</a> • <a href="#demo">Demo</a> • <a href="#installation">Installation</a> • <a href="#license">License</a>
 </p>
 
 ## Features
@@ -32,8 +32,40 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
 - [x] Integrate night mode easily
 - [x] UIColor and UIImage support
 - [x] Better autocompletion
+- [x] Customize with notification
 
 ## Usage
+
++ Use `MixedColor` instead of `UIColor`
+
+    ```swift
+    let view = UIView()
+    
+    view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x000000)
+    ```
+
++ Use `MixedImage` instead of `UIImage`
+
+    ```swift
+    let imageView = UIImageView()
+    
+    imageView.mixedImage = MixedImage(normal: normal, night: night)
+    ```
+
++ Change current theme
+
+    ```swift
+    NightNight.theme = .NORMAL
+    NightNight.theme = .NIGHT
+    ```
+
+## Customize
+
+NightNight will send `NightNightThemeChangeNotification`. if you wanna some customize features, you can observe it and change what you want in corresponding selector.
+
+```swift
+public let NightNightThemeChangeNotification
+```
 
 ## Demo
 
