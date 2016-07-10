@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://travis-ci.org/draveness/NightNight"><img alt="Travis Status" src="https://img.shields.io/travis/draveness/NightNight.svg"/></a>
+  <a href="https://travis-ci.org/draveness/NightNight"><img alt="Travis Status" src="https://travis-ci.org/Draveness/NightNight.svg?branch=master"/></a>
   <a href="https://img.shields.io/cocoapods/v/NightNight.svg"><img alt="CocoaPods compatible" src="https://img.shields.io/cocoapods/v/NightNight.svg"/></a>
   <a href="https://github.com/Carthage/Carthage"><img alt="Carthage compatible" src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"/></a>
   <a href="https://img.shields.io/cocoapods/p/NightNight.svg?style=flat"><img alt="Platform" src="https://img.shields.io/cocoapods/p/NightNight.svg?style=flat"/></a>
