@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
 
-        navigationItem.title = "NightNight"
+//        navigationItem.title = "NightNight"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Normal",
                                                            style: .Done,
                                                            target: self,
