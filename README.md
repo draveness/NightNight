@@ -12,10 +12,6 @@
 **NightNight** makes it easy to integrate night mode.
 
 ```swift
-let attrs = TextAttributes()
-    .font(name: "HelveticaNeue", size: 16)
-    .foregroundColor(white: 0.2, alpha: 1)
-    .lineHeightMultiple(1.5)
 let view = UIView()
 view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x000000)
 
