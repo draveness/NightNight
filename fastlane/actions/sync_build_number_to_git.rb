@@ -25,7 +25,7 @@ module Fastlane
           end
           build_number = (Action.sh command).strip
           Fastlane::Actions::IncrementBuildNumberAction.run(build_number: build_number)
-          Actions.lane_context[ShareValues::BUILD_NUMBER] = build_number
+          Actions.lane_context[SharedValues::BUILD_NUMBER] = build_number
       end
 
       #####################################################
