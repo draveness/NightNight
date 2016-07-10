@@ -77,7 +77,6 @@ private extension UIButton {
 
     private var mixedTitleShadowColorDictionary: [NSNumber: MixedColor] {
         get {
-            NSNumber(unsignedLong: UIControlState.Application.rawValue)
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedTitleShadowColorDictionaryKey) as? [NSNumber: MixedColor] {
                 return dict
             }
@@ -95,7 +94,6 @@ private extension UIButton {
 
     private var mixedImageDictionary: [NSNumber: MixedImage] {
         get {
-            NSNumber(unsignedLong: UIControlState.Application.rawValue)
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedImageDictionaryKey) as? [NSNumber: MixedImage] {
                 return dict
             }
@@ -113,7 +111,6 @@ private extension UIButton {
 
     private var mixedBackgroundImageDictionary: [NSNumber: MixedImage] {
         get {
-            NSNumber(unsignedLong: UIControlState.Application.rawValue)
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedBackgroundImageDictionaryKey) as? [NSNumber: MixedImage] {
                 return dict
             }
