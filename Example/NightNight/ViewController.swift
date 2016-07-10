@@ -19,9 +19,13 @@ class ViewController: UIViewController {
         print(view.mixedBackgroundColor?.nightColor)
 
         label.frame = view.frame
-        label.text = "NightNight"
+//        label.text = "NightNight"
+        let attributedString = NSMutableAttributedString(string: "NightNight")
+        attributedString.setNightAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
+//        attributedString.nn_setAttributes([NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)], range: NSRange(location: 0, length: 9))
+        label.attributedText = attributedString
         label.textAlignment = .Center
-        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
+//        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
 
         navigationItem.title = "NightNight"
