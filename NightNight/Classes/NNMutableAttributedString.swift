@@ -8,22 +8,14 @@
 
 import UIKit
 
-public let NNForegroundColorAttributeName = "NNForegroundColorAttributeName"
-public let NNBackgroundColorAttributeName = "NNBackgroundColorAttributeName"
-
-var mixedAttrsKey = "mixedAttrs"
-
-let MixedColorAttributeNamesDictionary =
-    [NNForegroundColorAttributeName: NSForegroundColorAttributeName,
-     NNBackgroundColorAttributeName: NSBackgroundColorAttributeName]
-let MixedColorAttributeNames = MixedColorAttributeNamesDictionary.keys
-
 public extension NSMutableAttributedString {
-
+    struct AssociatedKeys {
+        static var mixedAttrsKey = "mixedAttrs"
+    }
 
     private var mixedAttrs: [String: [NSRange: MixedColor]] {
         get {
-            if let dict = objc_getAssociatedObject(self, &mixedAttrsKey) as? [String : [NSRange : MixedColor]] {
+            if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedAttrsKey) as? [String : [NSRange : MixedColor]] {
                 return dict
             }
             mixedAttrs = [:]
@@ -35,23 +27,13 @@ public extension NSMutableAttributedString {
             return mixedAttrs
         }
         set {
-            objc_setAssociatedObject(self, &mixedAttrsKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.mixedAttrsKey, newValue as AnyObject, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
-    }
-
-    private func shouldUpdateStatus(attrs: [String: AnyObject]) -> Bool {
-        return MixedColorAttributeNames.reduce(false) { (shouldUpdate, name) -> Bool in
-            return attrs.keys.contains(name) || shouldUpdate
-        }
-    }
-
-    private func shouldUpdateStatus(attr: String) -> Bool {
-        return MixedColorAttributeNames.contains(attr)
     }
 
     public func setMixedAttributes(attrs: [String : AnyObject]?, range: NSRange) {
         if var attrs = attrs {
-            if shouldUpdateStatus(attrs) {
+            if containsAttributeName(attrs) {
                 NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
             }
 
@@ -68,7 +50,7 @@ public extension NSMutableAttributedString {
     }
 
     public func addMixedAttribute(name: String, value: AnyObject, range: NSRange) {
-        if shouldUpdateStatus(name),
+        if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
@@ -80,7 +62,7 @@ public extension NSMutableAttributedString {
     }
 
     public func addMixedAttributes(attrs: [String : AnyObject], range: NSRange) {
-        if shouldUpdateStatus(attrs) {
+        if containsAttributeName(attrs) {
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
             var attrs = attrs
@@ -99,7 +81,7 @@ public extension NSMutableAttributedString {
     }
 
     public func removeMixedAttribute(name: String, range: NSRange) {
-        if shouldUpdateStatus(name),
+        if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
             mixedAttrs[name]?.removeValueForKey(range)
             removeAttribute(normalName, range: range)

@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         view.addSubview(label)
 
         navigationItem.title = "NightNight"
-        navigationController?.navigationBar.titleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
+        navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Normal",
                                                            style: .Done,
                                                            target: self,
