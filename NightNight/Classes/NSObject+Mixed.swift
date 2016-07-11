@@ -8,29 +8,15 @@
 
 import Foundation
 
-private var isRegisteredNotificationKey = "isRegisteredNotificationKey"
-
 extension NSObject {
 
-    private var isRegisteredNotification: Bool {
-        get {
-            return (objc_getAssociatedObject(self, &isRegisteredNotificationKey) as? NSNumber)?.boolValue ?? false
-        }
-        set {
-            objc_setAssociatedObject(self, &isRegisteredNotificationKey, NSNumber(bool: newValue), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-    
     func getMixedColor(key: UnsafePointer<Void>) -> MixedColor? {
         return objc_getAssociatedObject(self, key) as? MixedColor
     }
     func setMixedColor(key: UnsafePointer<Void>, value: MixedColor?) {
         objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
-        if !isRegisteredNotification {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
-            isRegisteredNotification = true
-        }
+        addNightObserver(#selector(_updateTheme))
     }
 
     func _updateTheme() {
@@ -42,4 +28,5 @@ extension NSObject {
     }
 
     func _updateCurrentStatus() {}
+
 }

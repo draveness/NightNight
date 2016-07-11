@@ -19,7 +19,8 @@ public extension UINavigationBar {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedBarStyleKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateBarStyle), name: NightNightThemeChangeNotification, object: nil)
+
+            addNightObserver(#selector(_updateBarStyle))
         }
     }
 

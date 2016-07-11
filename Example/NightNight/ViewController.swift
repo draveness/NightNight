@@ -18,11 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
 
-        button.setTitle("NightNight", forState: .Normal)
-        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: .Normal)
-        button.addTarget(self, action: #selector(changeTheme), forControlEvents: .TouchUpInside)
-        button.frame = view.frame
-        view.addSubview(button)
+        setupLabel()
+
+//        button.setTitle("NightNight", forState: .Normal)
+//        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: .Normal)
+//        button.addTarget(self, action: #selector(changeTheme), forControlEvents: .TouchUpInside)
+//        button.frame = view.frame
+//        view.addSubview(button)
 
         navigationItem.title = "NightNight"
         navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
@@ -43,17 +45,17 @@ class ViewController: UIViewController {
 
     func setupLabel() {
         label.frame = view.frame
-        label.text = "NightNight"
+//        label.text = "NightNight"
 
-//        let attributedString = NSMutableAttributedString(string: "NightNight")
-//        attributedString.setMixedAttributes(
-//            [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)],
-//            range: NSRange(location: 0, length: 9)
-//        )
-//        label.attributedText = attributedString
+        let attributedString = NSMutableAttributedString(string: "NightNight")
+        attributedString.setMixedAttributes(
+            [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)],
+            range: NSRange(location: 0, length: 9)
+        )
+        label.attributedText = attributedString
 
         label.textAlignment = .Center
-        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
+//        label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
     }
 

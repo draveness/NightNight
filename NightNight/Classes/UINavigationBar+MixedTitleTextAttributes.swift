@@ -20,12 +20,13 @@ public extension UINavigationBar {
             }
 
             objc_setAssociatedObject(self, &AssociatedKeys.mixedTitleTextAttributesKey, [:], .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTitleTextAttributes), name: NightNightThemeChangeNotification, object: nil)
 
             return self.mixedTitleTextAttributes
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedTitleTextAttributesKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+
+            addNightObserver(#selector(_updateTitleTextAttributes))
 
             if containsAttributeName(newValue) {
                 var attributes = newValue
