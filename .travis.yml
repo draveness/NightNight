@@ -12,7 +12,7 @@ before_install:
 - brew outdated carthage || brew upgrade carthage
 before_deploy:
 - carthage build --no-skip-current
-- carthage archive $FRAMEWORK_NAME
+- carthage archive NightNight
 script:
 - pod lib lint
 deploy:

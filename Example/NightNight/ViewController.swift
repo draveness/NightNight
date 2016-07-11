@@ -18,13 +18,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.mixedBackgroundColor = MixedColor(normal: 0xfafafa, night: 0x222222)
 
-        setupLabel()
+//        setupLabel()
 
-//        button.setTitle("NightNight", forState: .Normal)
-//        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: .Normal)
-//        button.addTarget(self, action: #selector(changeTheme), forControlEvents: .TouchUpInside)
-//        button.frame = view.frame
-//        view.addSubview(button)
+        button.setTitle("NightNight", forState: .Normal)
+        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: .Normal)
+        button.addTarget(self, action: #selector(changeTheme), forControlEvents: .TouchUpInside)
+        button.frame = view.frame
+        view.addSubview(button)
 
         navigationItem.title = "NightNight"
         navigationController?.navigationBar.mixedTitleTextAttributes = [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)]
@@ -76,7 +76,6 @@ class ViewController: UIViewController {
     }
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        print("preferredStatusBarStyle called.")
         return MixedStatusBarStyle(normal: .Default, night: .LightContent).unfold()
     }
 
