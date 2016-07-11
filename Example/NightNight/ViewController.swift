@@ -36,8 +36,6 @@ class ViewController: UIViewController {
                                                             action: #selector(changeToNight))
         navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
         navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
-
-        self.mixedPreferredStatusBarStyle = MixedStatusBarStyle(normal: .Default, night: .LightContent)
     }
 
     func setupLabel() {
