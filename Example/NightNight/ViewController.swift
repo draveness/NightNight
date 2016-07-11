@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
         navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
 
-        // Change bar style will change status bar style cuz current view controller is a child of navigation controller, preferredStatusBarStyle will never be called.
+        // Change bar style will change status bar style cuz current view controller is a child of navigation controller, preferredStatusBarStyle will never be called http://stackoverflow.com/questions/19022210/preferredstatusbarstyle-isnt-called .
         navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .Default, night: .Black)
     }
 
@@ -55,10 +55,6 @@ class ViewController: UIViewController {
         label.textAlignment = .Center
         label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
-
-        self.customize {
-            self.setNeedsStatusBarAppearanceUpdate()
-        }
     }
 
     func changeToNormal() {

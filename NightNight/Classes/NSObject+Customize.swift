@@ -25,7 +25,7 @@ extension NSObject {
         }
     }
 
-    public func customize(closure: () -> ()) {
+    private /*public*/ func customize(closure: () -> ()) {
         closure()
         self.customize.closures.append(closure)
     }
