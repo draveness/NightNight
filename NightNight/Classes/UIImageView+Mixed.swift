@@ -41,8 +41,8 @@ public extension UIImageView {
         }
     }
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
 
         if let mixedImage = mixedImage {
             image = mixedImage.unfold()

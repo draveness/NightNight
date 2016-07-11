@@ -31,8 +31,8 @@ public extension UITableView {
     }
     
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
         
         if let mixedSeparatorColor = mixedSeparatorColor {
             separatorColor = mixedSeparatorColor.unfold()

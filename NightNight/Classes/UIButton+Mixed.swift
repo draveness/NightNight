@@ -29,8 +29,8 @@ public extension UIButton {
         setImage(backgroundImage.unfold(), forState: state)
     }
 
-    public override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    public override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
 
         mixedTitleColorDictionary.forEach { (state, mixedColor) in
             setTitleColor(mixedColor.unfold(), forState: UIControlState(number: state))
@@ -66,7 +66,7 @@ private extension UIButton {
 
             self.mixedTitleColorDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
             return self.mixedTitleColorDictionary
         }
@@ -83,7 +83,7 @@ private extension UIButton {
 
             self.mixedTitleShadowColorDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
             return self.mixedTitleShadowColorDictionary
         }
@@ -100,7 +100,7 @@ private extension UIButton {
 
             self.mixedImageDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
             return self.mixedImageDictionary
         }
@@ -117,7 +117,7 @@ private extension UIButton {
 
             self.mixedBackgroundImageDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
 
             return self.mixedBackgroundImageDictionary
         }

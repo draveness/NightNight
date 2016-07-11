@@ -52,6 +52,10 @@ class ViewController: UIViewController {
         label.textAlignment = .Center
         label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
+
+        NightNight.customize {
+            
+        }
     }
 
     func changeToNormal() {
@@ -72,7 +76,7 @@ class ViewController: UIViewController {
 
     dynamic override func preferredStatusBarStyle() -> UIStatusBarStyle {
         print("Hello ")
-        return .LightContent
+        return MixedStatusBarStyle(normal: .Default, night: .LightContent).unfold()
     }
 }
 

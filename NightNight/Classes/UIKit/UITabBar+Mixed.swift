@@ -31,8 +31,8 @@ public extension UITabBar {
     }
     
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
         
         if let mixedBarTintColor = mixedBarTintColor {
             barTintColor = mixedBarTintColor.unfold()

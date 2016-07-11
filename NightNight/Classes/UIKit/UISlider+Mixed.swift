@@ -47,8 +47,8 @@ public extension UISlider {
     }
     
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
         
         if let mixedMinimumTrackTintColor = mixedMinimumTrackTintColor {
             minimumTrackTintColor = mixedMinimumTrackTintColor.unfold()

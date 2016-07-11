@@ -39,8 +39,8 @@ public extension UIPageControl {
     }
     
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
         
         if let mixedPageIndicatorTintColor = mixedPageIndicatorTintColor {
             pageIndicatorTintColor = mixedPageIndicatorTintColor.unfold()

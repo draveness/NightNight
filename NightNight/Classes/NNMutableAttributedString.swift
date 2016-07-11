@@ -34,7 +34,7 @@ public extension NSMutableAttributedString {
     public func setMixedAttributes(attrs: [String : AnyObject]?, range: NSRange) {
         if var attrs = attrs {
             if containsAttributeName(attrs) {
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
             }
 
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
@@ -52,7 +52,7 @@ public extension NSMutableAttributedString {
     public func addMixedAttribute(name: String, value: AnyObject, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
             mixedAttrs[name]?[range] = value as? MixedColor
             addAttribute(normalName, value: value, range: range)
@@ -63,7 +63,7 @@ public extension NSMutableAttributedString {
 
     public func addMixedAttributes(attrs: [String : AnyObject], range: NSRange) {
         if containsAttributeName(attrs) {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
             var attrs = attrs
 
@@ -90,8 +90,8 @@ public extension NSMutableAttributedString {
         }
     }
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
 
         MixedColorAttributeNamesDictionary.forEach { (mixed, normal) in
             if let foregroundColorDictionary = mixedAttrs[mixed] {

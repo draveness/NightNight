@@ -15,16 +15,16 @@ extension NSObject {
     }
     func setMixedColor(key: UnsafePointer<Void>, value: MixedColor?) {
         objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTheme), name: NightNightThemeChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
     }
 
-    func updateTheme() {
+    func _updateTheme() {
         UIView.beginAnimations(nil, context: nil)
 
-        self.updateCurrentStatus()
+        self._updateCurrentStatus()
 
         UIView.commitAnimations()
     }
 
-    func updateCurrentStatus() {}
+    func _updateCurrentStatus() {}
 }

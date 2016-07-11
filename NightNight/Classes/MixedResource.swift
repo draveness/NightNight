@@ -16,7 +16,7 @@ public class MixedResource<T> {
         nightResource = night
     }
 
-    func unfold() -> T {
+    public func unfold() -> T {
         switch NightNight.theme {
         case .NORMAL: return normalResource
         case .NIGHT:  return nightResource

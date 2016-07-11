@@ -39,8 +39,8 @@ public extension UIProgressView {
     }
     
 
-    override func updateCurrentStatus() {
-        super.updateCurrentStatus()
+    override func _updateCurrentStatus() {
+        super._updateCurrentStatus()
         
         if let mixedProgressTintColor = mixedProgressTintColor {
             progressTintColor = mixedProgressTintColor.unfold()
