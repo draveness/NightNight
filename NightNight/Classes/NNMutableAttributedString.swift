@@ -24,6 +24,8 @@ public extension NSMutableAttributedString {
                 self.mixedAttrs[mixed] = [:]
             }
 
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
+
             return self.mixedAttrs
         }
         set {
@@ -33,10 +35,6 @@ public extension NSMutableAttributedString {
 
     public func setMixedAttributes(attrs: [String : AnyObject]?, range: NSRange) {
         if var attrs = attrs {
-            if containsAttributeName(attrs) {
-                NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
-            }
-
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
                     mixedAttrs[mixed]?[range] = attrs[mixed] as? MixedColor
@@ -52,7 +50,6 @@ public extension NSMutableAttributedString {
     public func addMixedAttribute(name: String, value: AnyObject, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
             mixedAttrs[name]?[range] = value as? MixedColor
             addAttribute(normalName, value: value, range: range)
@@ -63,7 +60,6 @@ public extension NSMutableAttributedString {
 
     public func addMixedAttributes(attrs: [String : AnyObject], range: NSRange) {
         if containsAttributeName(attrs) {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateCurrentStatus), name: NightNightThemeChangeNotification, object: nil)
 
             var attrs = attrs
 

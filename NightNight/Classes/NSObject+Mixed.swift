@@ -15,6 +15,7 @@ extension NSObject {
     }
     func setMixedColor(key: UnsafePointer<Void>, value: MixedColor?) {
         objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
     }
 

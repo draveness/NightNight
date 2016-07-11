@@ -38,6 +38,7 @@ public class Customize: NSObject {
     private convenience init(obj: NSObject) {
         self.init()
         self.correspondingObject = obj
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_callAllExistingClosures), name: NightNightThemeChangeNotification, object: nil)
     }
 
