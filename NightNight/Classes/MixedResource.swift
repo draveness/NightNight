@@ -43,3 +43,9 @@ public class MixedStatusBarStyle: MixedResource<UIStatusBarStyle> {
         super.init(normal: normal, night: night)
     }
 }
+
+public class MixedBarStyle: MixedResource<UIBarStyle> {
+    public override init(normal: UIBarStyle, night: UIBarStyle) {
+        super.init(normal: normal, night: night)
+    }
+}

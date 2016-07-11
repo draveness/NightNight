@@ -53,8 +53,8 @@ class ViewController: UIViewController {
         label.mixedTextColor = MixedColor(normal: 0x000000, night: 0xfafafa)
         view.addSubview(label)
 
-        NightNight.customize {
-            
+        self.customize {
+            self.setNeedsStatusBarAppearanceUpdate()
         }
     }
 
@@ -74,9 +74,10 @@ class ViewController: UIViewController {
         }
     }
 
-    dynamic override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        print("Hello ")
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        print("preferredStatusBarStyle called.")
         return MixedStatusBarStyle(normal: .Default, night: .LightContent).unfold()
     }
+
 }
 

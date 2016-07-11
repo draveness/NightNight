@@ -13,24 +13,37 @@ extension NSObject {
         static var customizeKey = "customizeKey"
     }
 
-    public var customize: Customize {
+    private var customize: Customize {
         get {
             if let obj = objc_getAssociatedObject(self, &AssociatedKeys.customizeKey) as? Customize {
                 return obj
             }
 
-            objc_setAssociatedObject(self, &AssociatedKeys.customizeKey, Customize(), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.customizeKey, Customize(obj: self), .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
             return objc_getAssociatedObject(self, &AssociatedKeys.customizeKey) as! Customize
         }
     }
+
+    public func customize(closure: () -> ()) {
+        closure()
+        self.customize.closures.append(closure)
+    }
 }
 
 public class Customize: NSObject {
-    private var closures: [Void -> Void] = []
+    private var closures: [() -> ()] = []
+    private weak var correspondingObject: NSObject?
 
-    override init() {
-        super.init()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
+    private convenience init(obj: NSObject) {
+        self.init()
+        self.correspondingObject = obj
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_callAllExistingClosures), name: NightNightThemeChangeNotification, object: nil)
+    }
+
+    func _callAllExistingClosures() {
+        closures.forEach {
+            $0()
+        }
     }
 }
