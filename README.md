@@ -11,6 +11,8 @@
 
 **NightNight** makes it easy to integrate night mode.
 
+> If you want to implement night mode in Objective-C project without import swift code. This is the Objective-C version [DKNightVersion](https://github.com/Draveness/DKNightVersion)
+
 ```swift
 let view = UIView()
 view.mixedBackgroundColor = MixedColor(normal: 0xffffff, night: 0x000000)
@@ -57,12 +59,17 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
         [NNForegroundColorAttributeName: MixedColor(normal: 0x000000, night: 0xfafafa)],
         range: NSRange(location: 0, length: 9)
     )
+    
+    public let NNForegroundColorAttributeName
+    public let NNBackgroundColorAttributeNames
     ```
 
 + `NavigationBar` barStyle
 
     ```swift
-    navigationController?.navigationBar.mixedBarStyle = MixedBarStyle(normal: .Default, night: .Black)
+    let navigationBar = navigationController?.navigationBar
+
+    navigationBar.mixedBarStyle = MixedBarStyle(normal: .Default, night: .Black)
     ```
 
 + Change current theme to `.NORMAL` or `.NIGHT`
