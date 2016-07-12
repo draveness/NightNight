@@ -28,6 +28,9 @@ public class MixedImage: MixedResource<UIImage> {
     public override init(normal: UIImage, night: UIImage) {
         super.init(normal: normal, night: night)
     }
+    public convenience init(normal: String, night: String) {
+        self.init(normal: UIImage(named: normal)!, night: UIImage(named: night)!)
+    }
 }
 
 public class MixedColor: MixedResource<UIColor> {
