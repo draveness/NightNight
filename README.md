@@ -9,9 +9,10 @@
   <a href="https://img.shields.io/cocoapods/p/NightNight.svg?style=flat"><img alt="Platform" src="https://img.shields.io/cocoapods/p/NightNight.svg?style=flat"/></a>
 </p>
 
-**NightNight** makes it easy to integrate night mode.
+**NightNight** makes it easy to integrate night mode. It provides multiple APIs which all contain keyword **mixed**.
 
-> If you want to implement night mode in Objective-C project without import swift code. This is the Objective-C version [DKNightVersion](https://github.com/Draveness/DKNightVersion)
+> If you want to implement night mode in Objective-C project without import swift code.
+> This is the Objective-C version [DKNightVersion](https://github.com/Draveness/DKNightVersion)
 
 ```swift
 let view = UIView()
