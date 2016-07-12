@@ -34,6 +34,9 @@ public class MixedImage: MixedResource<UIImage> {
 }
 
 public class MixedColor: MixedResource<UIColor> {
+    public override init(normal: UIColor, night: UIColor) {
+        super.init(normal: normal, night: night)
+    }
     public init(normal: Int, night: Int) {
         let normalColor = UIColor(rgb: normal)
         let nightColor = UIColor(rgb: night)
