@@ -18,9 +18,19 @@ lane :release do |options|
   git_commit_all(message: "Bump version to #{target_version}")
   add_git_tag tag: target_version                            
 
+  build_carthage_framework
+
+  build_carthage_framework(framework_name: 'NightNight')
+  git_commit_all(message: "Carthage archive NightNight")
 
   push_to_git_remote                                        
   pod_push                                                 
+end
+
+lane :carthage do
+  build_carthage_framework(framework_name: 'NightNight')
+  git_commit_all(message: "Carthage archive NightNight")
+  push_to_git_remote                                        
 end
 
 lane :podpush do
