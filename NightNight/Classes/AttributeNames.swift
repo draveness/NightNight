@@ -10,10 +10,12 @@ import Foundation
 
 public let NNForegroundColorAttributeName = "NNForegroundColorAttributeName"
 public let NNBackgroundColorAttributeName = "NNBackgroundColorAttributeName"
+public let NNUnderlineColorAttributeName = "NNUnderlineColorAttributeName"
 
 let MixedColorAttributeNamesDictionary =
     [NNForegroundColorAttributeName: NSForegroundColorAttributeName,
-     NNBackgroundColorAttributeName: NSBackgroundColorAttributeName]
+     NNBackgroundColorAttributeName: NSBackgroundColorAttributeName,
+     NNUnderlineColorAttributeName: NSUnderlineColorAttributeName]
 let MixedColorAttributeNames = MixedColorAttributeNamesDictionary.keys
 
 func containsAttributeName(attrs: [String: AnyObject]) -> Bool {
