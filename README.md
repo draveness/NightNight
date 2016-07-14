@@ -63,6 +63,7 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
     
     public let NNForegroundColorAttributeName
     public let NNBackgroundColorAttributeName
+    public let NNUnderlineColorAttributeName
     ```
 
 + `NavigationBar` barStyle
