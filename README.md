@@ -132,6 +132,10 @@ use_frameworks!
 pod 'NightNight'
 ```
 
+### Manually
+1. Download and drop ```NightNight/Classes```folder in your project.  
+2. Congratulations!  
+
 ## License
 
 Copyright (c) 2016 Draveness (http://github.com/draveness)
