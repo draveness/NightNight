@@ -15,4 +15,10 @@ public extension UIView {
             objc_setAssociatedObject(self, &NightKeys.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
+    @IBInspectable public var normalBackgroundColor: UIColor? {
+        get { return objc_getAssociatedObject(self, &NormalKeys.backgroundColor) as? UIColor }
+        set {
+            objc_setAssociatedObject(self, &NormalKeys.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
 }
