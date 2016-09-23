@@ -19,7 +19,7 @@ private class NotificationManager {
 
     deinit {
         if let observer = observer {
-            NSNotificationCenter.defaultCenter().removeObserver(observer)
+            NotificationCenter.default.removeObserver(observer)
         }
     }
 
@@ -28,7 +28,7 @@ private class NotificationManager {
 private var notificationManagerKey = "notificationManagerKey"
 
 extension NSObject {
-    private var notificationManager: NotificationManager {
+    fileprivate var notificationManager: NotificationManager {
         get {
             if let manager = objc_getAssociatedObject(self, &notificationManagerKey) as? NotificationManager {
                 return manager
@@ -41,7 +41,7 @@ extension NSObject {
         }
     }
 
-    func addNightObserver(selector: Selector) {
+    func addNightObserver(_ selector: Selector) {
         if let bool = notificationManager.selectorToBoolMap[selector] {
             if bool {
                 return
@@ -49,7 +49,7 @@ extension NSObject {
         } else {
             notificationManager.selectorToBoolMap[selector] = true
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: selector, name: NightNightThemeChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: selector, name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
 
     }
 

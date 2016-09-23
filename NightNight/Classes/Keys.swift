@@ -8,8 +8,8 @@
 
 import Foundation
 
-func mixed(key: String) -> String {
-    return "mixed\(key.capitalizedString)"
+func mixed(_ key: String) -> String {
+    return "mixed\(key.capitalized)"
 }
 
 struct Keys {
