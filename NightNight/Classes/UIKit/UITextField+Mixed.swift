@@ -22,6 +22,10 @@ import Foundation
 
 public extension UITextField {
     
+    fileprivate struct AssociatedKeys {
+        static var mixedKeyboardAppearanceKey = "mixedKeyboardAppearanceKey"
+    }
+    
     public var mixedTextColor: MixedColor? {
         get { return getMixedColor(&Keys.textColor) }
         set {
@@ -30,12 +34,26 @@ public extension UITextField {
         }
     }
     
+    public var mixedKeyboardAppearance: MixedKeyboardAppearance? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey) as? MixedKeyboardAppearance
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        
+    }
+    
 
     override func _updateCurrentStatus() {
         super._updateCurrentStatus()
         
         if let mixedTextColor = mixedTextColor {
             textColor = mixedTextColor.unfold()
+        }
+        
+        if let mixedKeyboardAppearance = mixedKeyboardAppearance {
+            keyboardAppearance = mixedKeyboardAppearance.unfold()
         }
         
     }

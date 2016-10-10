@@ -41,8 +41,6 @@ public extension UISearchBar {
         }
         set {
             objc_setAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-//            addNightObserver(#selector(_updateBarStyle))
         }
     
     }
