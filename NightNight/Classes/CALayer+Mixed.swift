@@ -9,7 +9,7 @@
 import Foundation
 
 public extension CALayer {
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var mixedBackgroundColorKey = "layer.mixedBackgroundColorKey"
         static var mixedBorderColorKey = "layer.mixedBorderColorKey"
         static var mixedShadowColorKey = "layer.mixedShadowColorKey"
@@ -40,15 +40,15 @@ public extension CALayer {
         super._updateCurrentStatus()
         
         if let mixedBackgroundColor = mixedBackgroundColor {
-            backgroundColor = mixedBackgroundColor.unfold().CGColor
+            backgroundColor = mixedBackgroundColor.unfold().cgColor
         }
         
         if let mixedBorderColor = mixedBorderColor {
-            borderColor = mixedBorderColor.unfold().CGColor
+            borderColor = mixedBorderColor.unfold().cgColor
         }
         
         if let mixedShadowColor = mixedShadowColor {
-            shadowColor = mixedShadowColor.unfold().CGColor
+            shadowColor = mixedShadowColor.unfold().cgColor
         }
     }
 

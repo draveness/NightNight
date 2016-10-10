@@ -18,12 +18,12 @@ let MixedColorAttributeNamesDictionary =
      NNUnderlineColorAttributeName: NSUnderlineColorAttributeName]
 let MixedColorAttributeNames = MixedColorAttributeNamesDictionary.keys
 
-func containsAttributeName(attrs: [String: AnyObject]) -> Bool {
+func containsAttributeName(_ attrs: [String: AnyObject]) -> Bool {
     return MixedColorAttributeNames.reduce(false) { (shouldUpdate, name) -> Bool in
         return attrs.keys.contains(name) || shouldUpdate
     }
 }
 
-func containsAttributeName(attr: String) -> Bool {
+func containsAttributeName(_ attr: String) -> Bool {
     return MixedColorAttributeNames.contains(attr)
 }

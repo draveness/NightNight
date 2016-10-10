@@ -9,11 +9,11 @@
 import UIKit
 
 public extension NSMutableAttributedString {
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var mixedAttrsKey = "mixedAttrs"
     }
 
-    private var mixedAttrs: [String: [NSRange: MixedColor]] {
+    fileprivate var mixedAttrs: [String: [NSRange: MixedColor]] {
         get {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedAttrsKey) as? [String : [NSRange : MixedColor]] {
                 return dict
@@ -33,7 +33,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func setMixedAttributes(attrs: [String : AnyObject]?, range: NSRange) {
+    public func setMixedAttributes(_ attrs: [String : AnyObject]?, range: NSRange) {
         if var attrs = attrs {
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
@@ -47,7 +47,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func addMixedAttribute(name: String, value: AnyObject, range: NSRange) {
+    public func addMixedAttribute(_ name: String, value: AnyObject, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
 
@@ -58,7 +58,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func addMixedAttributes(attrs: [String : AnyObject], range: NSRange) {
+    public func addMixedAttributes(_ attrs: [String : AnyObject], range: NSRange) {
         if containsAttributeName(attrs) {
             var attrs = attrs
 
@@ -75,10 +75,10 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func removeMixedAttribute(name: String, range: NSRange) {
+    public func removeMixedAttribute(_ name: String, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
-            mixedAttrs[name]?.removeValueForKey(range)
+            mixedAttrs[name]?.removeValue(forKey: range)
             removeAttribute(normalName, range: range)
         } else {
             removeAttribute(name, range: range)

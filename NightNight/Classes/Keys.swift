@@ -8,8 +8,8 @@
 
 import Foundation
 
-func mixed(key: String) -> String {
-    return "mixed\(key.capitalizedString)"
+func mixed(_ key: String) -> String {
+    return "mixed\(key.capitalized)"
 }
 
 struct Keys {
@@ -28,6 +28,8 @@ struct Keys {
     static var progressTintColor             = "progressTintColor"
     static var trackTintColor                = "trackTintColor"
     static var onTintColor                   = "onTintColor"
+    
+    static var keyboardAppearance            = "keyboardAppearance"
 }
 
 struct NormalKeys {
@@ -46,6 +48,8 @@ struct NormalKeys {
     static var progressTintColor             = "progressTintColor"
     static var trackTintColor                = "trackTintColor"
     static var onTintColor                   = "onTintColor"
+    
+    static var keyboardAppearance            = "keyboardAppearance"
 }
 
 struct NightKeys {
@@ -64,4 +68,6 @@ struct NightKeys {
     static var progressTintColor             = "progressTintColor"
     static var trackTintColor                = "trackTintColor"
     static var onTintColor                   = "onTintColor"
+    
+    static var keyboardAppearance            = "keyboardAppearance"
 }

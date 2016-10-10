@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UINavigationBar {
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var mixedTitleTextAttributesKey = "mixedTitleTextAttributesKey"
     }
 

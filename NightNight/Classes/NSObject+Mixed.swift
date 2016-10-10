@@ -10,10 +10,10 @@ import Foundation
 
 extension NSObject {
 
-    func getMixedColor(key: UnsafePointer<Void>) -> MixedColor? {
+    func getMixedColor(_ key: UnsafeRawPointer) -> MixedColor? {
         return objc_getAssociatedObject(self, key) as? MixedColor
     }
-    func setMixedColor(key: UnsafePointer<Void>, value: MixedColor?) {
+    func setMixedColor(_ key: UnsafeRawPointer, value: MixedColor?) {
         objc_setAssociatedObject(self, key, value, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
 
         addNightObserver(#selector(_updateTheme))
