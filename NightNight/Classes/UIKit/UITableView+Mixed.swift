@@ -30,12 +30,24 @@ public extension UITableView {
         }
     }
     
+    public var mixedSectionIndexBackgroundColor: MixedColor? {
+        get { return getMixedColor(&Keys.sectionIndexBackgroundColor) }
+        set {
+            sectionIndexBackgroundColor = newValue?.unfold()
+            setMixedColor(&Keys.sectionIndexBackgroundColor, value: newValue)
+        }
+    }
+    
 
     override func _updateCurrentStatus() {
         super._updateCurrentStatus()
         
         if let mixedSeparatorColor = mixedSeparatorColor {
             separatorColor = mixedSeparatorColor.unfold()
+        }
+        
+        if let mixedSectionIndexBackgroundColor = mixedSectionIndexBackgroundColor {
+            sectionIndexBackgroundColor = mixedSectionIndexBackgroundColor.unfold()
         }
         
     }

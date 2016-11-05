@@ -30,6 +30,7 @@ struct Keys {
     static var onTintColor                   = "onTintColor"
     
     static var keyboardAppearance            = "keyboardAppearance"
+    static var sectionIndexBackgroundColor   = "sectionIndexBackground"
 }
 
 struct NormalKeys {
@@ -50,6 +51,7 @@ struct NormalKeys {
     static var onTintColor                   = "onTintColor"
     
     static var keyboardAppearance            = "keyboardAppearance"
+    static var sectionIndexBackgroundColor   = "sectionIndexBackground"
 }
 
 struct NightKeys {
@@ -70,4 +72,5 @@ struct NightKeys {
     static var onTintColor                   = "onTintColor"
     
     static var keyboardAppearance            = "keyboardAppearance"
+    static var sectionIndexBackgroundColor   = "sectionIndexBackground"
 }
