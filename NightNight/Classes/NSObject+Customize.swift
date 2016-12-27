@@ -9,11 +9,11 @@
 import Foundation
 
 extension NSObject {
-    private struct AssociatedKeys {
+    fileprivate struct AssociatedKeys {
         static var customizeKey = "customizeKey"
     }
 
-    private var customize: Customize {
+    fileprivate var customize: Customize {
         get {
             if let obj = objc_getAssociatedObject(self, &AssociatedKeys.customizeKey) as? Customize {
                 return obj
@@ -25,21 +25,21 @@ extension NSObject {
         }
     }
 
-    private /*public*/ func customize(closure: () -> ()) {
+    fileprivate /*public*/ func customize(_ closure: @escaping () -> ()) {
         closure()
         self.customize.closures.append(closure)
     }
 }
 
-public class Customize: NSObject {
-    private var closures: [() -> ()] = []
-    private weak var correspondingObject: NSObject?
+open class Customize: NSObject {
+    fileprivate var closures: [() -> ()] = []
+    fileprivate weak var correspondingObject: NSObject?
 
-    private convenience init(obj: NSObject) {
+    fileprivate convenience init(obj: NSObject) {
         self.init()
         self.correspondingObject = obj
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_callAllExistingClosures), name: NightNightThemeChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(_callAllExistingClosures), name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
     }
 
     func _callAllExistingClosures() {

@@ -9,56 +9,56 @@
 import Foundation
 
 public extension UIButton {
-    public func setMixedTitleColor(color: MixedColor, forState state: UIControlState) {
+    public func setMixedTitleColor(_ color: MixedColor, forState state: UIControlState) {
         mixedTitleColorDictionary[NSNumber(controlState: state)] = color
-        setTitleColor(color.unfold(), forState: state)
+        setTitleColor(color.unfold(), for: state)
     }
 
-    public func setMixedTitleShadowColor(color: MixedColor, forState state: UIControlState) {
+    public func setMixedTitleShadowColor(_ color: MixedColor, forState state: UIControlState) {
         mixedTitleShadowColorDictionary[NSNumber(controlState: state)] = color
-        setTitleShadowColor(color.unfold(), forState: state)
+        setTitleShadowColor(color.unfold(), for: state)
     }
 
-    public func setMixedImage(image: MixedImage, forState state: UIControlState) {
+    public func setMixedImage(_ image: MixedImage, forState state: UIControlState) {
         mixedImageDictionary[NSNumber(controlState: state)] = image
-        setImage(image.unfold(), forState: state)
+        setImage(image.unfold(), for: state)
     }
 
-    public func setMixedBackgroundImage(backgroundImage: MixedImage, forState state: UIControlState) {
+    public func setMixedBackgroundImage(_ backgroundImage: MixedImage, forState state: UIControlState) {
         mixedBackgroundImageDictionary[NSNumber(controlState: state)] = backgroundImage
-        setImage(backgroundImage.unfold(), forState: state)
+        setImage(backgroundImage.unfold(), for: state)
     }
 
     public override func _updateCurrentStatus() {
         super._updateCurrentStatus()
 
         mixedTitleColorDictionary.forEach { (state, mixedColor) in
-            setTitleColor(mixedColor.unfold(), forState: UIControlState(number: state))
+            setTitleColor(mixedColor.unfold(), for: UIControlState(number: state))
         }
 
         mixedTitleShadowColorDictionary.forEach { (state, mixedColor) in
-            setTitleShadowColor(mixedColor.unfold(), forState: UIControlState(number: state))
+            setTitleShadowColor(mixedColor.unfold(), for: UIControlState(number: state))
         }
 
         mixedImageDictionary.forEach { (state, mixedImage) in
-            setImage(mixedImage.unfold(), forState: UIControlState(number: state))
+            setImage(mixedImage.unfold(), for: UIControlState(number: state))
         }
 
         mixedBackgroundImageDictionary.forEach { (state, mixedImage) in
-            setBackgroundImage(mixedImage.unfold(), forState: UIControlState(number: state))
+            setBackgroundImage(mixedImage.unfold(), for: UIControlState(number: state))
         }
     }
 }
 
 // MARK: - Storage
 private extension UIButton {
-    private struct AssociatedKeys {
+    struct AssociatedKeys {
         static var mixedTitleColorDictionaryKey = "mixedTitleColorDictionaryKey"
         static var mixedTitleShadowColorDictionaryKey = "mixedTitleColorDictionaryKey"
         static var mixedImageDictionaryKey = "mixedImageDictionaryKey"
         static var mixedBackgroundImageDictionaryKey = "mixedBackgroundImageDictionaryKey"
     }
-    private var mixedTitleColorDictionary: [NSNumber: MixedColor] {
+    var mixedTitleColorDictionary: [NSNumber: MixedColor] {
         get {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedTitleColorDictionaryKey) as? [NSNumber: MixedColor] {
                 return dict
@@ -66,7 +66,7 @@ private extension UIButton {
 
             self.mixedTitleColorDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(_updateTheme), name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
 
             return self.mixedTitleColorDictionary
         }
@@ -75,7 +75,7 @@ private extension UIButton {
         }
     }
 
-    private var mixedTitleShadowColorDictionary: [NSNumber: MixedColor] {
+    var mixedTitleShadowColorDictionary: [NSNumber: MixedColor] {
         get {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedTitleShadowColorDictionaryKey) as? [NSNumber: MixedColor] {
                 return dict
@@ -83,7 +83,7 @@ private extension UIButton {
 
             self.mixedTitleShadowColorDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(_updateTheme), name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
 
             return self.mixedTitleShadowColorDictionary
         }
@@ -92,7 +92,7 @@ private extension UIButton {
         }
     }
 
-    private var mixedImageDictionary: [NSNumber: MixedImage] {
+    var mixedImageDictionary: [NSNumber: MixedImage] {
         get {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedImageDictionaryKey) as? [NSNumber: MixedImage] {
                 return dict
@@ -100,7 +100,7 @@ private extension UIButton {
 
             self.mixedImageDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(_updateTheme), name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
 
             return self.mixedImageDictionary
         }
@@ -109,7 +109,7 @@ private extension UIButton {
         }
     }
 
-    private var mixedBackgroundImageDictionary: [NSNumber: MixedImage] {
+    var mixedBackgroundImageDictionary: [NSNumber: MixedImage] {
         get {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedBackgroundImageDictionaryKey) as? [NSNumber: MixedImage] {
                 return dict
@@ -117,7 +117,7 @@ private extension UIButton {
 
             self.mixedBackgroundImageDictionary = [:]
 
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: NightNightThemeChangeNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(_updateTheme), name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
 
             return self.mixedBackgroundImageDictionary
         }
@@ -129,12 +129,12 @@ private extension UIButton {
 
 private extension UIControlState {
     init(number: NSNumber) {
-        self.init(rawValue: number.unsignedIntegerValue)
+        self.init(rawValue: number.uintValue)
     }
 }
 
 private extension NSNumber {
     convenience init(controlState: UIControlState) {
-        self.init(unsignedLong: controlState.rawValue)
+        self.init(value: controlState.rawValue as UInt)
     }
 }
