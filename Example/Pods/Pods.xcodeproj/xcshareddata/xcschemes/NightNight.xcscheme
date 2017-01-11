@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0810"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AD2E7317D45416FEB63EF519FCE0AF8"
+               BlueprintIdentifier = "1D46282418292DD9C66BABD9DC496F9F"
                BuildableName = "NightNight.framework"
                BlueprintName = "NightNight"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AD2E7317D45416FEB63EF519FCE0AF8"
+            BlueprintIdentifier = "1D46282418292DD9C66BABD9DC496F9F"
             BuildableName = "NightNight.framework"
             BlueprintName = "NightNight"
             ReferencedContainer = "container:Pods.xcodeproj">

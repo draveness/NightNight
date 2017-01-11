@@ -25,7 +25,7 @@ open class NightNight {
         set {
             currentTheme = newValue
             UserDefaults.standard.set(currentTheme.rawValue, forKey: NightNightThemeKey)
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
         }
     }
 }
