@@ -78,7 +78,7 @@ public extension NSMutableAttributedString {
     public func removeMixedAttribute(_ name: String, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
-            mixedAttrs[name]?.removeValue(forKey: range)
+            _ = mixedAttrs[name]?.removeValue(forKey: range)
             removeAttribute(normalName, range: range)
         } else {
             removeAttribute(name, range: range)
