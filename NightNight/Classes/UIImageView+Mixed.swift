@@ -20,24 +20,27 @@
 
 import Foundation
 
-private var mixedImageKey = "mixedImage"
-private var mixedHighlightedImageKey = "mixedHighlightedImage"
-
 public extension UIImageView {
+    fileprivate struct AssociatedKeys {
+        static var mixedImageKey = "mixedImage"
+        static var mixedHighlightedImageKey = "mixedHighlightedImage"
+    }
 
     public var mixedImage: MixedImage? {
-        get { return objc_getAssociatedObject(self, &mixedImageKey) as? MixedImage }
+        get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedImageKey) as? MixedImage }
         set {
             image = newValue?.unfold()
-            objc_setAssociatedObject(self, &mixedImageKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.mixedImageKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            addNightObserver(#selector(_updateTheme))
         }
     }
 
     public var mixedHighlightedImage: MixedImage? {
-        get { return objc_getAssociatedObject(self, &mixedHighlightedImageKey) as? MixedImage }
+        get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedHighlightedImageKey) as? MixedImage }
         set {
             highlightedImage = newValue?.unfold()
-            objc_setAssociatedObject(self, &mixedHighlightedImageKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.mixedHighlightedImageKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            addNightObserver(#selector(_updateTheme))
         }
     }
 
