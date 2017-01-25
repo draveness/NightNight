@@ -28,4 +28,8 @@ open class NightNight {
             NotificationCenter.default.post(name: Notification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
         }
     }
+    
+    open class func toggleNightTheme() {
+        theme = currentTheme == .night ? .normal : .night
+    }
 }
