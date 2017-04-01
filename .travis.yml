@@ -9,7 +9,6 @@ env:
 before_install:
 - env
 - locale
-- bundle install
 - brew update
 - brew outdated carthage || brew upgrade carthage
 before_deploy:
