@@ -54,7 +54,7 @@ GEM
     nanaimo (0.2.3)
     nap (1.1.0)
     netrc (0.7.8)
-    rake (11.2.2)
+    rake (12.0.0)
     ruby-macho (0.2.6)
     thread_safe (0.3.6)
     tzinfo (1.2.3)
