@@ -2,9 +2,4 @@ use_frameworks!
 
 target 'NightNight_Example' do
   pod 'NightNight', :path => '../'
-
-  target 'NightNight_Tests' do
-    inherit! :search_paths
-
-  end
 end
