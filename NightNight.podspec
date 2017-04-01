@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'NightNight'
-  s.version          = '0.4.3'
+  s.version          = '0.4.4'
   s.summary          = 'NightNight is a solution for integrating night mode which was written in swift.'
 
   s.description      = <<-DESC
