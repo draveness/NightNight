@@ -11,6 +11,7 @@ env:
   - FRAMEWORK_NAME=NightNight
 before_install:
 - export LANG=en_us.UTF-8
+- gem install cocoapods
 - brew update
 - brew outdated carthage || brew upgrade carthage
 before_deploy:
