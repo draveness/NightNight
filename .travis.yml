@@ -1,14 +1,16 @@
-osx_image: xcode8.3
 language: objective-c
+os: osx
+osx_image: xcode8.3
 xcode_workspace: Example/NightNight.xcworkspace
 xcode_scheme: NightNight
 podfile: Example/Podfile
+rvm:
+- ruby-2.4.0
 env:
   global:
   - FRAMEWORK_NAME=NightNight
 before_install:
-- env
-- locale
+- export LANG=en_us.UTF-8
 - brew update
 - brew outdated carthage || brew upgrade carthage
 before_deploy:
