@@ -57,7 +57,7 @@ public class MixedBarStyle: MixedResource<UIBarStyle> {
     }
 }
 
-open class MixedKeyboardAppearance: MixedResource<UIKeyboardAppearance> {
+public class MixedKeyboardAppearance: MixedResource<UIKeyboardAppearance> {
     public override init(normal: UIKeyboardAppearance, night: UIKeyboardAppearance) {
         super.init(normal: normal, night: night)
     }
