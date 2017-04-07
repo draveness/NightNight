@@ -1,6 +1,5 @@
 {
-    "UIView": 
-    [
+    "UIView": [
         "backgroundColor",
         "tintColor"
     ],
@@ -64,5 +63,9 @@
     [
         "pageIndicatorTintColor",
         "currentPageIndicatorTintColor"
+    ],
+    "UIPopoverPresentationController":
+    [
+        "backgroundColor"
     ]
 }
