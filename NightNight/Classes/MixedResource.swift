@@ -6,7 +6,8 @@
 //
 //
 
-import Foundation
+//import Foundation
+import UIKit
 
 public class MixedResource<T> {
     public let normalResource: T
@@ -52,6 +53,12 @@ public class MixedStatusBarStyle: MixedResource<UIStatusBarStyle> {
 
 public class MixedBarStyle: MixedResource<UIBarStyle> {
     public override init(normal: UIBarStyle, night: UIBarStyle) {
+        super.init(normal: normal, night: night)
+    }
+}
+
+open class MixedKeyboardAppearance: MixedResource<UIKeyboardAppearance> {
+    public override init(normal: UIKeyboardAppearance, night: UIKeyboardAppearance) {
         super.init(normal: normal, night: night)
     }
 }

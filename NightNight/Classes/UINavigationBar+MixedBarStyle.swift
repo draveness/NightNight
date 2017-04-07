@@ -11,6 +11,7 @@ import Foundation
 public extension UINavigationBar {
     fileprivate struct AssociatedKeys {
         static var mixedBarStyleKey = "mixedBarStyleKey"
+        static var mixedBarTintColorKey = "mixedBarTintColorKey"
     }
 
     public var mixedBarStyle: MixedBarStyle? {

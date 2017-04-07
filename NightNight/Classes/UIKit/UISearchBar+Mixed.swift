@@ -19,8 +19,13 @@
 
 
 import Foundation
+import UIKit
 
 public extension UISearchBar {
+    
+    fileprivate struct AssociatedKeys {
+        static var mixedKeyboardAppearanceKey = "mixedKeyboardAppearanceKey"
+    }
     
     public var mixedBarTintColor: MixedColor? {
         get { return getMixedColor(&Keys.barTintColor) }
@@ -30,12 +35,26 @@ public extension UISearchBar {
         }
     }
     
+    public var mixedKeyboardAppearance: MixedKeyboardAppearance? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey) as? MixedKeyboardAppearance
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    
+    }
+    
 
     override func _updateCurrentStatus() {
         super._updateCurrentStatus()
         
         if let mixedBarTintColor = mixedBarTintColor {
             barTintColor = mixedBarTintColor.unfold()
+        }
+        
+        if let mixedKeyboardAppearance = mixedKeyboardAppearance {
+            keyboardAppearance = mixedKeyboardAppearance.unfold()
         }
         
     }

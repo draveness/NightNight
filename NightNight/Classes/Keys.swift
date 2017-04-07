@@ -28,6 +28,9 @@ struct Keys {
     static var progressTintColor             = "progressTintColor"
     static var trackTintColor                = "trackTintColor"
     static var onTintColor                   = "onTintColor"
+    
+    static var keyboardAppearance            = "keyboardAppearance"
+    static var sectionIndexBackgroundColor   = "sectionIndexBackground"
 }
 
 struct NormalKeys {
@@ -46,6 +49,9 @@ struct NormalKeys {
     static var progressTintColor             = "progressTintColor"
     static var trackTintColor                = "trackTintColor"
     static var onTintColor                   = "onTintColor"
+    
+    static var keyboardAppearance            = "keyboardAppearance"
+    static var sectionIndexBackgroundColor   = "sectionIndexBackground"
 }
 
 struct NightKeys {
@@ -64,4 +70,6 @@ struct NightKeys {
     static var progressTintColor             = "progressTintColor"
     static var trackTintColor                = "trackTintColor"
     static var onTintColor                   = "onTintColor"
+    static var keyboardAppearance            = "keyboardAppearance"
+    static var sectionIndexBackgroundColor   = "sectionIndexBackground"
 }
