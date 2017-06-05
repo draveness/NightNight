@@ -32,10 +32,11 @@ class ViewController: UIViewController {
                                                            style: .done,
                                                            target: self,
                                                            action: #selector(changeToNormal))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Night",
-                                                            style: .done,
-                                                            target: self,
-                                                            action: #selector(changeToNight))
+        
+        let nightModeButtonItem = UIBarButtonItem(image: nil, style: .done, target: self, action: #selector(changeToNight))
+        nightModeButtonItem.mixedImage = MixedImage(normal: UIImage(named: "lightModeButton")!, night: UIImage(named: "nightModeButton")!)
+        navigationItem.setRightBarButton(nightModeButtonItem, animated: true)
+        
         navigationController?.navigationBar.mixedBarTintColor = MixedColor(normal: 0xffffff, night: 0x222222)
         navigationController?.navigationBar.mixedTintColor = MixedColor(normal: 0x0000ff, night: 0xfafafa)
 
