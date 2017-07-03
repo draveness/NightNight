@@ -16,23 +16,26 @@ public extension CALayer {
     }
 
     public var mixedBackgroundColor: MixedColor? {
-        get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedBackgroundColorKey) as? MixedColor }
+        get { return getMixedColor(&AssociatedKeys.mixedBackgroundColorKey) }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.mixedBackgroundColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            backgroundColor = newValue?.unfold().cgColor
+            setMixedColor(&AssociatedKeys.mixedBackgroundColorKey, value: newValue)
         }
     }
     
     public var mixedBorderColor: MixedColor? {
-        get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedBorderColorKey) as? MixedColor }
+        get { return  getMixedColor(&AssociatedKeys.mixedBorderColorKey) }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.mixedBorderColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            borderColor = newValue?.unfold().cgColor
+            setMixedColor(&AssociatedKeys.mixedBorderColorKey, value: newValue)
         }
     }
     
     public var mixedShadowColor: MixedColor? {
-        get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedShadowColorKey) as? MixedColor }
+        get { return getMixedColor(&AssociatedKeys.mixedShadowColorKey) }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.mixedShadowColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            shadowColor = newValue?.unfold().cgColor
+            setMixedColor(&AssociatedKeys.mixedShadowColorKey, value: newValue)
         }
     }
     
