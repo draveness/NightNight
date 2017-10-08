@@ -39,7 +39,7 @@ public extension CALayer {
         }
     }
     
-    override func _updateCurrentStatus() {
+    @objc override func _updateCurrentStatus() {
         super._updateCurrentStatus()
         
         if let mixedBackgroundColor = mixedBackgroundColor {
