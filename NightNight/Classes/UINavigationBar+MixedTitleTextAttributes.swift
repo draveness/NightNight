@@ -44,7 +44,7 @@ public extension UINavigationBar {
         }
     }
 
-    func _updateTitleTextAttributes() {
+    @objc func _updateTitleTextAttributes() {
         MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
             if mixedTitleTextAttributes.keys.contains(mixed),
                 let mixedColor = mixedTitleTextAttributes[mixed] as? MixedColor {

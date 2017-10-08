@@ -85,7 +85,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    func _updateTitleAttributes() {
+    @objc func _updateTitleAttributes() {
 
         MixedColorAttributeNamesDictionary.forEach { (mixed, normal) in
             if let foregroundColorDictionary = mixedAttrs[mixed] {
