@@ -27,6 +27,6 @@ extension NSObject {
         UIView.commitAnimations()
     }
 
-    func _updateCurrentStatus() {}
+    @objc func _updateCurrentStatus() {}
 
 }
