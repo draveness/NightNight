@@ -38,12 +38,12 @@ public extension NSMutableAttributedString {
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
                     mixedAttrs[mixed]?[range] = attrs[mixed] as? MixedColor
-                    attrs[normal] = mixedAttrs[mixed]?[range]?.unfold()
+                    attrs[mixed] = mixedAttrs[mixed]?[range]?.unfold()
                 }
             })
-            setAttributes(attrs, range: range)
+            setAttributes(attrs.withAttributedStringKeys(), range: range)
         } else {
-            setAttributes(attrs, range: range)
+            setAttributes(attrs?.withAttributedStringKeys(), range: range)
         }
     }
 
@@ -65,13 +65,13 @@ public extension NSMutableAttributedString {
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
                     mixedAttrs[mixed]?[range] = attrs[mixed] as? MixedColor
-                    attrs[normal] = mixedAttrs[mixed]?[range]?.unfold()
+                    attrs[mixed] = mixedAttrs[mixed]?[range]?.unfold()
                 }
             })
 
-            addAttributes(attrs, range: range)
+            addAttributes(attrs.withAttributedStringKeys(), range: range)
         } else {
-            addAttributes(attrs, range: range)
+            addAttributes(attrs.withAttributedStringKeys(), range: range)
         }
     }
 
