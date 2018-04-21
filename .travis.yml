@@ -1,6 +1,6 @@
 language: objective-c
 os: osx
-osx_image: xcode8.3
+osx_image: xcode9.3
 xcode_workspace: Example/NightNight.xcworkspace
 xcode_scheme: NightNight
 podfile: Example/Podfile
@@ -14,6 +14,7 @@ before_install:
 - gem install cocoapods
 - brew update
 - brew outdated carthage || brew upgrade carthage
+- bundle install
 before_deploy:
 - carthage build --no-skip-current
 - carthage archive $FRAMEWORK_NAME

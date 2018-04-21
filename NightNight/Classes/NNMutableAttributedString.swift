@@ -38,12 +38,12 @@ public extension NSMutableAttributedString {
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
                     mixedAttrs[mixed]?[range] = attrs[mixed] as? MixedColor
-                    attrs[normal] = mixedAttrs[mixed]?[range]?.unfold()
+                    attrs[mixed] = mixedAttrs[mixed]?[range]?.unfold()
                 }
             })
-            setAttributes(attrs, range: range)
+            setAttributes(attrs.withAttributedStringKeys(), range: range)
         } else {
-            setAttributes(attrs, range: range)
+            setAttributes(attrs?.withAttributedStringKeys(), range: range)
         }
     }
 
@@ -54,7 +54,7 @@ public extension NSMutableAttributedString {
             mixedAttrs[name]?[range] = value as? MixedColor
             addAttribute(normalName, value: value, range: range)
         } else {
-            addAttribute(name, value: value, range: range)
+            addAttribute(NSAttributedStringKey(rawValue: name), value: value, range: range)
         }
     }
 
@@ -65,13 +65,13 @@ public extension NSMutableAttributedString {
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
                     mixedAttrs[mixed]?[range] = attrs[mixed] as? MixedColor
-                    attrs[normal] = mixedAttrs[mixed]?[range]?.unfold()
+                    attrs[mixed] = mixedAttrs[mixed]?[range]?.unfold()
                 }
             })
 
-            addAttributes(attrs, range: range)
+            addAttributes(attrs.withAttributedStringKeys(), range: range)
         } else {
-            addAttributes(attrs, range: range)
+            addAttributes(attrs.withAttributedStringKeys(), range: range)
         }
     }
 
@@ -81,11 +81,11 @@ public extension NSMutableAttributedString {
             _ = mixedAttrs[name]?.removeValue(forKey: range)
             removeAttribute(normalName, range: range)
         } else {
-            removeAttribute(name, range: range)
+            removeAttribute(NSAttributedStringKey(rawValue: name), range: range)
         }
     }
 
-    func _updateTitleAttributes() {
+    @objc func _updateTitleAttributes() {
 
         MixedColorAttributeNamesDictionary.forEach { (mixed, normal) in
             if let foregroundColorDictionary = mixedAttrs[mixed] {

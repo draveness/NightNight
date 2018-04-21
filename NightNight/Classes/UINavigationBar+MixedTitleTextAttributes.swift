@@ -34,24 +34,25 @@ public extension UINavigationBar {
                 MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                     if self.mixedTitleTextAttributes.keys.contains(mixed),
                         let mixedColor = self.mixedTitleTextAttributes[mixed] as? MixedColor {
-                        attributes[normal] = mixedColor.unfold()
+                        attributes[mixed] = mixedColor.unfold()
                     }
                 })
-                titleTextAttributes = attributes
+                titleTextAttributes = attributes.withAttributedStringKeys()
             } else {
-                titleTextAttributes = newValue
+                titleTextAttributes = newValue.withAttributedStringKeys()
             }
         }
     }
 
-    func _updateTitleTextAttributes() {
+    @objc func _updateTitleTextAttributes() {
+        var mixedTitleTextAttributes = self.mixedTitleTextAttributes
         MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
             if mixedTitleTextAttributes.keys.contains(mixed),
                 let mixedColor = mixedTitleTextAttributes[mixed] as? MixedColor {
-                mixedTitleTextAttributes[normal] = mixedColor.unfold()
+                mixedTitleTextAttributes[mixed] = mixedColor.unfold()
             }
         })
-        titleTextAttributes = mixedTitleTextAttributes
+        titleTextAttributes = mixedTitleTextAttributes.withAttributedStringKeys()
     }
 
 }

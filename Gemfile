@@ -2,4 +2,4 @@ source 'https://rubygems.org'
 
 gem 'colorize'
 gem 'rake'
-gem 'cocoapods'
+gem 'cocoapods', '>=1.5.0'

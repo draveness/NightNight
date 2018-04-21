@@ -19,7 +19,7 @@ extension NSObject {
         addNightObserver(#selector(_updateTheme))
     }
 
-    func _updateTheme() {
+    @objc func _updateTheme() {
         UIView.beginAnimations(nil, context: nil)
 
         self._updateCurrentStatus()
@@ -27,6 +27,6 @@ extension NSObject {
         UIView.commitAnimations()
     }
 
-    func _updateCurrentStatus() {}
+    @objc func _updateCurrentStatus() {}
 
 }

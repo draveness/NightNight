@@ -25,7 +25,7 @@ public extension UINavigationBar {
         }
     }
 
-    func _updateBarStyle() {
+    @objc func _updateBarStyle() {
         if let mixedBarStyle = mixedBarStyle {
             barStyle = mixedBarStyle.unfold()
         }

@@ -60,15 +60,15 @@ class ViewController: UIViewController {
         view.addSubview(label)
     }
 
-    func changeToNormal() {
+    @objc func changeToNormal() {
         NightNight.theme = .normal
     }
 
-    func changeToNight() {
+    @objc func changeToNight() {
         NightNight.theme = .night
     }
 
-    func changeTheme() {
+    @objc func changeTheme() {
         if NightNight.theme == .night {
             NightNight.theme = .normal
         } else {

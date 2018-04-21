@@ -42,7 +42,7 @@ open class Customize: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(_callAllExistingClosures), name: NSNotification.Name(rawValue: NightNightThemeChangeNotification), object: nil)
     }
 
-    func _callAllExistingClosures() {
+    @objc func _callAllExistingClosures() {
         closures.forEach {
             $0()
         }
