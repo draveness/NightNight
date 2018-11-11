@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIButton {
-    public func setMixedTitleColor(_ color: MixedColor, forState state: UIControlState) {
+    public func setMixedTitleColor(_ color: MixedColor, forState state: UIControl.State) {
         mixedTitleColorDictionary[NSNumber(controlState: state)] = color
         setTitleColor(color.unfold(), for: state)
     }
@@ -19,7 +19,7 @@ public extension UIButton {
 //        setTitleShadowColor(color.unfold(), for: state)
 //    }
 
-    public func setMixedImage(_ image: MixedImage, forState state: UIControlState) {
+    public func setMixedImage(_ image: MixedImage, forState state: UIControl.State) {
         mixedImageDictionary[NSNumber(controlState: state)] = image
         setImage(image.unfold(), for: state)
     }
@@ -33,7 +33,7 @@ public extension UIButton {
         super._updateCurrentStatus()
 
         mixedTitleColorDictionary.forEach { (state, mixedColor) in
-            setTitleColor(mixedColor.unfold(), for: UIControlState(number: state))
+            setTitleColor(mixedColor.unfold(), for: UIControl.State(number: state))
         }
 
 //        mixedTitleShadowColorDictionary.forEach { (state, mixedColor) in
@@ -41,7 +41,7 @@ public extension UIButton {
 //        }
 
         mixedImageDictionary.forEach { (state, mixedImage) in
-            setImage(mixedImage.unfold(), for: UIControlState(number: state))
+            setImage(mixedImage.unfold(), for: UIControl.State(number: state))
         }
 
 //        mixedBackgroundImageDictionary.forEach { (state, mixedImage) in
@@ -127,14 +127,14 @@ private extension UIButton {
 //    }
 }
 
-private extension UIControlState {
+private extension UIControl.State {
     init(number: NSNumber) {
         self.init(rawValue: number.uintValue)
     }
 }
 
 private extension NSNumber {
-    convenience init(controlState: UIControlState) {
+    convenience init(controlState: UIControl.State) {
         self.init(value: controlState.rawValue as UInt)
     }
 }

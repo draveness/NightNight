@@ -1,16 +1,16 @@
 PODS:
-  - NightNight (0.4.5)
+  - NightNight (0.5.0)
 
 DEPENDENCIES:
   - NightNight (from `../`)
 
 EXTERNAL SOURCES:
   NightNight:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  NightNight: 8d63f905dea894a00633c60cccec9c8627750092
+  NightNight: 68f0e367db6a8a1157a1acb518639e974e5c88de
 
 PODFILE CHECKSUM: 97f4a586e236127ae884ad28a0a5eca4f1d3d0bc
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3
