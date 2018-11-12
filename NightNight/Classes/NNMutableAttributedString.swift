@@ -54,7 +54,7 @@ public extension NSMutableAttributedString {
             mixedAttrs[name]?[range] = value as? MixedColor
             addAttribute(normalName, value: value, range: range)
         } else {
-            addAttribute(NSAttributedStringKey(rawValue: name), value: value, range: range)
+            addAttribute(NSAttributedString.Key(rawValue: name), value: value, range: range)
         }
     }
 
@@ -81,7 +81,7 @@ public extension NSMutableAttributedString {
             _ = mixedAttrs[name]?.removeValue(forKey: range)
             removeAttribute(normalName, range: range)
         } else {
-            removeAttribute(NSAttributedStringKey(rawValue: name), range: range)
+            removeAttribute(NSAttributedString.Key(rawValue: name), range: range)
         }
     }
 

@@ -20,7 +20,7 @@ open class NightNight {
         case night
     }
 
-    open static var theme: Theme {
+    public static var theme: Theme {
         get { return currentTheme }
         set {
             currentTheme = newValue

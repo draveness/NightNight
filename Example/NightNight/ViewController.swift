@@ -20,8 +20,8 @@ class ViewController: UIViewController {
 
 //        setupLabel()
 
-        button.setTitle("NightNight", for: UIControlState())
-        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: UIControlState())
+        button.setTitle("NightNight", for: UIControl.State())
+        button.setMixedTitleColor(MixedColor(normal: 0x000000, night: 0xffffff), forState: UIControl.State())
         button.addTarget(self, action: #selector(changeTheme), for: .touchUpInside)
         button.frame = view.frame
         view.addSubview(button)
