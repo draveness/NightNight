@@ -9,13 +9,13 @@
 import Foundation
 
 public extension UIView {
-    @IBInspectable public var nightBackgroundColor: UIColor? {
+    @IBInspectable var nightBackgroundColor: UIColor? {
         get { return objc_getAssociatedObject(self, &NightKeys.backgroundColor) as? UIColor }
         set {
             objc_setAssociatedObject(self, &NightKeys.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    @IBInspectable public var normalBackgroundColor: UIColor? {
+    @IBInspectable var normalBackgroundColor: UIColor? {
         get { return objc_getAssociatedObject(self, &NormalKeys.backgroundColor) as? UIColor }
         set {
             objc_setAssociatedObject(self, &NormalKeys.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

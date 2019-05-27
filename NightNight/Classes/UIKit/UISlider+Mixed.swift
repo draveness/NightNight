@@ -22,7 +22,7 @@ import Foundation
 
 public extension UISlider {
     
-    public var mixedMinimumTrackTintColor: MixedColor? {
+    var mixedMinimumTrackTintColor: MixedColor? {
         get { return getMixedColor(&Keys.minimumTrackTintColor) }
         set {
             minimumTrackTintColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UISlider {
         }
     }
     
-    public var mixedMaximumTrackTintColor: MixedColor? {
+    var mixedMaximumTrackTintColor: MixedColor? {
         get { return getMixedColor(&Keys.maximumTrackTintColor) }
         set {
             maximumTrackTintColor = newValue?.unfold()
@@ -38,7 +38,7 @@ public extension UISlider {
         }
     }
     
-    public var mixedThumbTintColor: MixedColor? {
+    var mixedThumbTintColor: MixedColor? {
         get { return getMixedColor(&Keys.thumbTintColor) }
         set {
             thumbTintColor = newValue?.unfold()

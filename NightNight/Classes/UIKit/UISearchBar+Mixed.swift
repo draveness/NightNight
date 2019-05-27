@@ -27,7 +27,7 @@ public extension UISearchBar {
         static var mixedKeyboardAppearanceKey = "mixedKeyboardAppearanceKey"
     }
     
-    public var mixedBarTintColor: MixedColor? {
+    var mixedBarTintColor: MixedColor? {
         get { return getMixedColor(&Keys.barTintColor) }
         set {
             barTintColor = newValue?.unfold()
@@ -35,7 +35,7 @@ public extension UISearchBar {
         }
     }
     
-    public var mixedKeyboardAppearance: MixedKeyboardAppearance? {
+    var mixedKeyboardAppearance: MixedKeyboardAppearance? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey) as? MixedKeyboardAppearance
         }

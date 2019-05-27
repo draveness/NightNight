@@ -22,7 +22,7 @@ import Foundation
 
 public extension UISwitch {
     
-    public var mixedOnTintColor: MixedColor? {
+    var mixedOnTintColor: MixedColor? {
         get { return getMixedColor(&Keys.onTintColor) }
         set {
             onTintColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UISwitch {
         }
     }
     
-    public var mixedThumbTintColor: MixedColor? {
+    var mixedThumbTintColor: MixedColor? {
         get { return getMixedColor(&Keys.thumbTintColor) }
         set {
             thumbTintColor = newValue?.unfold()

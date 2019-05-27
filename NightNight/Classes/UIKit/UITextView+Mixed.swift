@@ -22,7 +22,7 @@ import Foundation
 
 public extension UITextView {
     
-    public var mixedTextColor: MixedColor? {
+    var mixedTextColor: MixedColor? {
         get { return getMixedColor(&Keys.textColor) }
         set {
             textColor = newValue?.unfold()
