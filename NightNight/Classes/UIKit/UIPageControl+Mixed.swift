@@ -22,7 +22,7 @@ import Foundation
 
 public extension UIPageControl {
     
-    public var mixedPageIndicatorTintColor: MixedColor? {
+    var mixedPageIndicatorTintColor: MixedColor? {
         get { return getMixedColor(&Keys.pageIndicatorTintColor) }
         set {
             pageIndicatorTintColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UIPageControl {
         }
     }
     
-    public var mixedCurrentPageIndicatorTintColor: MixedColor? {
+    var mixedCurrentPageIndicatorTintColor: MixedColor? {
         get { return getMixedColor(&Keys.currentPageIndicatorTintColor) }
         set {
             currentPageIndicatorTintColor = newValue?.unfold()

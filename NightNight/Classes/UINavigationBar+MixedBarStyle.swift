@@ -14,7 +14,7 @@ public extension UINavigationBar {
         static var mixedBarTintColorKey = "mixedBarTintColorKey"
     }
 
-    public var mixedBarStyle: MixedBarStyle? {
+    var mixedBarStyle: MixedBarStyle? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.mixedBarStyleKey) as? MixedBarStyle
         }

@@ -22,7 +22,7 @@ import Foundation
 
 public extension UILabel {
     
-    public var mixedTextColor: MixedColor? {
+    var mixedTextColor: MixedColor? {
         get { return getMixedColor(&Keys.textColor) }
         set {
             textColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UILabel {
         }
     }
     
-    public var mixedShadowColor: MixedColor? {
+    var mixedShadowColor: MixedColor? {
         get { return getMixedColor(&Keys.shadowColor) }
         set {
             shadowColor = newValue?.unfold()
@@ -38,7 +38,7 @@ public extension UILabel {
         }
     }
     
-    public var mixedHighlightedTextColor: MixedColor? {
+    var mixedHighlightedTextColor: MixedColor? {
         get { return getMixedColor(&Keys.highlightedTextColor) }
         set {
             highlightedTextColor = newValue?.unfold()
