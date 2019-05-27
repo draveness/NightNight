@@ -15,7 +15,7 @@ public let NNUnderlineColorAttributeName = "NNUnderlineColorAttributeName"
 let MixedColorAttributeNamesDictionary =
     [NNForegroundColorAttributeName: NSAttributedString.Key.foregroundColor,
      NNBackgroundColorAttributeName: NSAttributedString.Key.backgroundColor,
-     NNUnderlineColorAttributeName: NSAttributedStringKey.underlineColor]
+     NNUnderlineColorAttributeName: NSAttributedString.Key.underlineColor]
 let MixedColorAttributeNames = MixedColorAttributeNamesDictionary.keys
 
 func containsAttributeName(_ attrs: [String: AnyObject]) -> Bool {
