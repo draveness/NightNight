@@ -22,7 +22,7 @@ import Foundation
 
 public extension UIPopoverPresentationController {
     
-    public var mixedBackgroundColor: MixedColor? {
+    var mixedBackgroundColor: MixedColor? {
         get { return getMixedColor(&Keys.backgroundColor) }
         set {
             backgroundColor = newValue?.unfold()
