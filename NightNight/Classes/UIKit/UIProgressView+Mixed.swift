@@ -22,7 +22,7 @@ import Foundation
 
 public extension UIProgressView {
     
-    public var mixedProgressTintColor: MixedColor? {
+    var mixedProgressTintColor: MixedColor? {
         get { return getMixedColor(&Keys.progressTintColor) }
         set {
             progressTintColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UIProgressView {
         }
     }
     
-    public var mixedTrackTintColor: MixedColor? {
+    var mixedTrackTintColor: MixedColor? {
         get { return getMixedColor(&Keys.trackTintColor) }
         set {
             trackTintColor = newValue?.unfold()

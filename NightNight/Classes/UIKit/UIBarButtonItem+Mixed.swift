@@ -14,7 +14,7 @@ public extension UIBarButtonItem {
         static var mixedImageKey = "mixedImage"
     }
     
-    public var mixedImage: MixedImage? {
+    var mixedImage: MixedImage? {
         get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedImageKey) as? MixedImage }
         set {
             image = newValue?.unfold()

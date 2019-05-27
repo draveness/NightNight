@@ -22,7 +22,7 @@ import Foundation
 
 public extension UITableView {
     
-    public var mixedSeparatorColor: MixedColor? {
+    var mixedSeparatorColor: MixedColor? {
         get { return getMixedColor(&Keys.separatorColor) }
         set {
             separatorColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UITableView {
         }
     }
     
-    public var mixedSectionIndexBackgroundColor: MixedColor? {
+    var mixedSectionIndexBackgroundColor: MixedColor? {
         get { return getMixedColor(&Keys.sectionIndexBackgroundColor) }
         set {
             sectionIndexBackgroundColor = newValue?.unfold()
