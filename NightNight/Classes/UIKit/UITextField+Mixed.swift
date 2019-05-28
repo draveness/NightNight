@@ -26,7 +26,7 @@ public extension UITextField {
         static var mixedKeyboardAppearanceKey = "mixedKeyboardAppearanceKey"
     }
     
-    public var mixedTextColor: MixedColor? {
+    var mixedTextColor: MixedColor? {
         get { return getMixedColor(&Keys.textColor) }
         set {
             textColor = newValue?.unfold()
@@ -34,7 +34,7 @@ public extension UITextField {
         }
     }
     
-    public var mixedKeyboardAppearance: MixedKeyboardAppearance? {
+    var mixedKeyboardAppearance: MixedKeyboardAppearance? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.mixedKeyboardAppearanceKey) as? MixedKeyboardAppearance
         }

@@ -33,7 +33,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func setMixedAttributes(_ attrs: [String : AnyObject]?, range: NSRange) {
+    func setMixedAttributes(_ attrs: [String : AnyObject]?, range: NSRange) {
         if var attrs = attrs {
             MixedColorAttributeNamesDictionary.forEach({ (mixed, normal) in
                 if attrs.keys.contains(mixed) {
@@ -47,7 +47,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func addMixedAttribute(_ name: String, value: AnyObject, range: NSRange) {
+    func addMixedAttribute(_ name: String, value: AnyObject, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
 
@@ -58,7 +58,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func addMixedAttributes(_ attrs: [String : AnyObject], range: NSRange) {
+    func addMixedAttributes(_ attrs: [String : AnyObject], range: NSRange) {
         if containsAttributeName(attrs) {
             var attrs = attrs
 
@@ -75,7 +75,7 @@ public extension NSMutableAttributedString {
         }
     }
 
-    public func removeMixedAttribute(_ name: String, range: NSRange) {
+    func removeMixedAttribute(_ name: String, range: NSRange) {
         if containsAttributeName(name),
             let normalName = MixedColorAttributeNamesDictionary[name] {
             _ = mixedAttrs[name]?.removeValue(forKey: range)

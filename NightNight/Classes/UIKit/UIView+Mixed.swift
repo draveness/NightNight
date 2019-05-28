@@ -22,7 +22,7 @@ import Foundation
 
 public extension UIView {
     
-    public var mixedBackgroundColor: MixedColor? {
+    var mixedBackgroundColor: MixedColor? {
         get { return getMixedColor(&Keys.backgroundColor) }
         set {
             backgroundColor = newValue?.unfold()
@@ -30,7 +30,7 @@ public extension UIView {
         }
     }
     
-    public var mixedTintColor: MixedColor? {
+    var mixedTintColor: MixedColor? {
         get { return getMixedColor(&Keys.tintColor) }
         set {
             tintColor = newValue?.unfold()

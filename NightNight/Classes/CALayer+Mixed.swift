@@ -15,7 +15,7 @@ public extension CALayer {
         static var mixedShadowColorKey = "layer.mixedShadowColorKey"
     }
 
-    public var mixedBackgroundColor: MixedColor? {
+    var mixedBackgroundColor: MixedColor? {
         get { return getMixedColor(&AssociatedKeys.mixedBackgroundColorKey) }
         set {
             backgroundColor = newValue?.unfold().cgColor
@@ -23,7 +23,7 @@ public extension CALayer {
         }
     }
     
-    public var mixedBorderColor: MixedColor? {
+    var mixedBorderColor: MixedColor? {
         get { return  getMixedColor(&AssociatedKeys.mixedBorderColorKey) }
         set {
             borderColor = newValue?.unfold().cgColor
@@ -31,7 +31,7 @@ public extension CALayer {
         }
     }
     
-    public var mixedShadowColor: MixedColor? {
+    var mixedShadowColor: MixedColor? {
         get { return getMixedColor(&AssociatedKeys.mixedShadowColorKey) }
         set {
             shadowColor = newValue?.unfold().cgColor

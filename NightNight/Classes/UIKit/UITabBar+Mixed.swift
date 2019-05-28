@@ -22,7 +22,7 @@ import Foundation
 
 public extension UITabBar {
     
-    public var mixedBarTintColor: MixedColor? {
+    var mixedBarTintColor: MixedColor? {
         get { return getMixedColor(&Keys.barTintColor) }
         set {
             barTintColor = newValue?.unfold()

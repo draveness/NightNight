@@ -9,7 +9,7 @@
 import Foundation
 
 public extension UIButton {
-    public func setMixedTitleColor(_ color: MixedColor, forState state: UIControl.State) {
+    func setMixedTitleColor(_ color: MixedColor, forState state: UIControl.State) {
         mixedTitleColorDictionary[NSNumber(controlState: state)] = color
         setTitleColor(color.unfold(), for: state)
     }
@@ -19,7 +19,7 @@ public extension UIButton {
 //        setTitleShadowColor(color.unfold(), for: state)
 //    }
 
-    public func setMixedImage(_ image: MixedImage, forState state: UIControl.State) {
+    func setMixedImage(_ image: MixedImage, forState state: UIControl.State) {
         mixedImageDictionary[NSNumber(controlState: state)] = image
         setImage(image.unfold(), for: state)
     }
@@ -29,7 +29,7 @@ public extension UIButton {
 //        setBackgroundImage(backgroundImage.unfold(), for: state)
 //    }
 
-    public override func _updateCurrentStatus() {
+    override func _updateCurrentStatus() {
         super._updateCurrentStatus()
 
         mixedTitleColorDictionary.forEach { (state, mixedColor) in

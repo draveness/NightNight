@@ -13,7 +13,7 @@ public extension UINavigationBar {
         static var mixedTitleTextAttributesKey = "mixedTitleTextAttributesKey"
     }
 
-    public var mixedTitleTextAttributes: [String : AnyObject] {
+    var mixedTitleTextAttributes: [String : AnyObject] {
         get {
             if let dict = objc_getAssociatedObject(self, &AssociatedKeys.mixedTitleTextAttributesKey) as? [String : AnyObject] {
                 return dict

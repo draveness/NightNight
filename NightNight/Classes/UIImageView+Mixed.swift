@@ -26,7 +26,7 @@ public extension UIImageView {
         static var mixedHighlightedImageKey = "mixedHighlightedImage"
     }
 
-    public var mixedImage: MixedImage? {
+    var mixedImage: MixedImage? {
         get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedImageKey) as? MixedImage }
         set {
             image = newValue?.unfold()
@@ -35,7 +35,7 @@ public extension UIImageView {
         }
     }
 
-    public var mixedHighlightedImage: MixedImage? {
+    var mixedHighlightedImage: MixedImage? {
         get { return objc_getAssociatedObject(self, &AssociatedKeys.mixedHighlightedImageKey) as? MixedImage }
         set {
             highlightedImage = newValue?.unfold()

@@ -13,7 +13,7 @@ NightNight is a framework to integrate night mode to application written in swif
   s.source           = { :git => 'https://github.com/draveness/NightNight.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
-  s.swift_version = '4.1'
+  s.swift_version = '5'
 
   s.source_files = 'NightNight/Classes/**/*'
   
