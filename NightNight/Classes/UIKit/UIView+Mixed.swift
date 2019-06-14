@@ -44,6 +44,11 @@ public extension UIView {
         
         if let mixedBackgroundColor = mixedBackgroundColor {
             backgroundColor = mixedBackgroundColor.unfold()
+        } else if let nightBackgroundColor = nightBackgroundColor, let normalBackgroundColor = normalBackgroundColor {
+            switch NightNight.theme {
+            case .normal: backgroundColor = normalBackgroundColor
+            case .night:  backgroundColor = nightBackgroundColor
+            }
         }
         
         if let mixedTintColor = mixedTintColor {

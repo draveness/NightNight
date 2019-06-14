@@ -12,13 +12,17 @@ public extension UIView {
     @IBInspectable var nightBackgroundColor: UIColor? {
         get { return objc_getAssociatedObject(self, &NightKeys.backgroundColor) as? UIColor }
         set {
+            backgroundColor = newValue
             objc_setAssociatedObject(self, &NightKeys.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            addNightObserver(#selector(_updateTheme))
         }
     }
     @IBInspectable var normalBackgroundColor: UIColor? {
         get { return objc_getAssociatedObject(self, &NormalKeys.backgroundColor) as? UIColor }
         set {
+            backgroundColor = newValue
             objc_setAssociatedObject(self, &NormalKeys.backgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            addNightObserver(#selector(_updateTheme))
         }
     }
 }
