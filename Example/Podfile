@@ -1,5 +1,7 @@
+platform :ios, '8.0' 
+
 use_frameworks!
 
 target 'NightNight_Example' do
-  pod 'NightNight', :path => '../'
+  pod 'NightNight' 
 end

@@ -2,15 +2,15 @@ PODS:
   - NightNight (0.5.0)
 
 DEPENDENCIES:
-  - NightNight (from `../`)
+  - NightNight
 
-EXTERNAL SOURCES:
-  NightNight:
-    :path: "../"
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - NightNight
 
 SPEC CHECKSUMS:
-  NightNight: c8124a2deb437f1a9dbe5b8f2fd44094dcb96e4f
+  NightNight: 2a5550fdd9cf424b75ebaab022c26aaba35304c8
 
-PODFILE CHECKSUM: 97f4a586e236127ae884ad28a0a5eca4f1d3d0bc
+PODFILE CHECKSUM: f105855121e38a533ee8f1bff6fda897959cbb96
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.7.5
