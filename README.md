@@ -74,11 +74,11 @@ imageView.mixedImage = MixedImage(normal: UIImage(named: "normal"), night: UIIma
     navigationBar.mixedBarStyle = MixedBarStyle(normal: .Default, night: .Black)
     ```
 
-+ Change current theme to `.NORMAL` or `.NIGHT`
++ Change current theme to `.normal` or `.night`
 
     ```swift
-    NightNight.theme = .NORMAL
-    NightNight.theme = .NIGHT
+    NightNight.theme = .normal
+    NightNight.theme = .night
     ```
 
 ## Customize
